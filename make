@@ -8,11 +8,12 @@ rm -rf gemini
 echo "making build dirs and linking assets"
 mkdir gemini
 cp -r assets build
+cp assets/images/favicon.ico build
 
 echo "making html toc"
-find . -maxdepth 1 -name "20*" | sed "s/\.md//g;s/\.\///g" | xargs -I{} echo "- [{}]($pageroot/{}.html)" | pandoc -t html5 --template=templates/contents.html -V "pageroot=$pageroot" -s -o build/contents.html
+find . -maxdepth 1 -name "20*" | sed "s/\.md//g;s/\.\///g" | xargs -I{} echo -e "- [{}]({}.html)\n" | pandoc -t html5 --template=templates/contents.html -V "pageroot=$pageroot" -s -o build/contents.html
 echo "making gemini toc"
-find . -maxdepth 1 -name "20*" | sed "s/\.md//g;s/\.\///g" | xargs -I{} echo "=> /{}.gmi {}" | pandoc -t plain --template=templates/gemini_contents.gmi --lua-filter=filters/gemini.lua -o gemini/contents.gmi -s
+find . -maxdepth 1 -name "20*" | sed "s/\.md//g;s/\.\///g" | xargs -I{} echo -e "=> {}.gmi {}\n" | pandoc -t plain --template=templates/gemini_contents.gmi --lua-filter=filters/gemini.lua -o gemini/contents.gmi -s
 
 echo "making html posts"
 find . -maxdepth 1 -name "20*" | sed "s/\.md//g;s/\.\///g" | xargs -I{} pandoc {}.md -f markdown -t html5 --template=templates/post.html -V "pageroot=$pageroot" -s --highlight-style=breezedark -o build/{}.html

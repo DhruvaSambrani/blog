@@ -84,7 +84,8 @@ function handle_block (el)
     return
   end
   if (el.tag == "Str") then
-    add_block(pandoc.Para(el))
+    -- add_block(pandoc.Para(el))
+    add_block(el)
     return
   end
   if (el.tag == "OrderedList") then
