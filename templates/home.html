@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="generator" content="pandoc" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+    $if(keywords)$
+    <meta name="keywords" content="$for(keywords)$$keywords$$sep$, $endfor$" />
+    $endif$
+    <title>$title$|Dhruva's Blog</title>
+    <style>
+        $styles.html()$
+    </style>
+    <link rel="stylesheet" href="$pageroot$/assets/css/styles.css">
+    $for(css)$
+    <link rel="stylesheet" href="$css$" />
+    $endfor$
+    $math$
+    $for(header-includes)$
+    $header-includes$
+    $endfor$
+</head>
+
+<body class="post-body">
+    <div class="markdown-body">
+        $body$
+    </div>
+    <footer>
+        <p>Last Edited: Some time ago</p>
+    </footer>
+</body>
+
+</html>

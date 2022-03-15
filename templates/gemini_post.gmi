@@ -1,0 +1,7 @@
+$body$
+
+# Links
+=> / Home
+=> /contents.gmi Other Posts
+
+

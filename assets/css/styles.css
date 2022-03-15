@@ -1,0 +1,129 @@
+/* Theme */
+body {
+    background-color: #04293a !important;
+    padding: 20px 0px;
+    max-width: unset !important;
+    hyphens: unset;
+}
+a {
+    color: #F85E3B !important;
+}
+
+.markdown-body {
+    color: #DED7CA;
+    max-width: 900px;
+    width: 90%;
+    background-color: #28374E;
+    padding: 20px 5%;
+    border-radius: 8px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.markdown-body > :first-child{
+    color: #ffffff;
+    border: none;
+    text-align: center;
+    font-size: 35px;
+    margin-bottom: 0px;
+}
+.markdown-body p {
+    line-height: 1.5em;
+    margin-bottom: 1.2em;
+    text-indent: 2em;
+}
+.markdown-body h1,h2,h3,h4,h5 {
+    color: #b2e961;
+    font-family: Constantia, "Lucida Bright", Lucidabright, "Lucida Serif", Lucida,
+    "DejaVu Serif", "Bitstream Vera Serif", "Liberation Serif", Georgia, serif;
+}
+.markdown-body .centered {
+    width:100%;
+    text-align: center;
+}
+.markdown-body .centered img {
+    width: 300px;
+    max-width: 80%;
+}
+.markdown-body .centered figcaption {
+    font-size: 2rem;
+}
+
+
+/* code indentation fix */
+
+.markdown-body pre {
+    overflow-x: scroll;
+}
+.markdown-body pre span {
+    white-space: pre !important;
+}
+.markdown-body pre code {
+    white-space:pre-line !important;
+}
+
+
+/* Footer theme */
+footer {
+    display: flex !important;
+    justify-content: space-around;
+    max-width: 900px;
+    width: 90%;
+    font-size: 16px;
+    background-color: #28374E;
+    color: #DED7CA;
+    padding: 10px 5% !important;
+    border-radius: 8px;
+    border-color: white;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10px;
+}
+footer a {
+    background-color: #04293a;
+    font-size: 1.1rem;
+    margin: 0px;
+    padding: 8px 20px;
+    border: 0px solid white;
+    border-radius: 4px;
+}
+footer p {
+    color: white;
+    font-size: 1.1rem;
+    margin: 0px;
+    padding: 8px 20px;
+}
+
+/* Footer content small screen fix */
+
+footer #home::before {
+    content: "Open ";
+}
+footer #home::after {
+    content: " Page";
+}
+footer #random::before {
+    content: "Open ";
+}
+footer #random::after {
+    content: " Page";
+}
+footer #last::before {
+    content: "Last Edited: ";
+}
+@media (max-width: 75em) {
+    footer #home::before {
+        content: "";
+    }
+    footer #home::after {
+        content: "";
+    }
+    footer #random::before{
+        content: "";
+    }
+    footer #random::after {
+        content: "";
+    }
+    footer #last::before {
+        content: "";
+    }
+}
