@@ -4,7 +4,7 @@ body {
     padding: 20px 0px;
     max-width: unset !important;
     hyphens: unset;
-    min-height: 100vh;
+    min-height: 98vh;
     display: flex;
     flex-direction: column;
 }
@@ -105,10 +105,10 @@ footer #home::before {
 footer #home::after {
     content: " Page";
 }
-footer #random::before {
+footer #contents::before {
     content: "Open ";
 }
-footer #random::after {
+footer #contents::after {
     content: " Page";
 }
 footer #last::before {
@@ -121,10 +121,10 @@ footer #last::before {
     footer #home::after {
         content: "";
     }
-    footer #random::before{
+    footer #contents::before{
         content: "";
     }
-    footer #random::after {
+    footer #contents::after {
         content: "";
     }
     footer #last::before {
