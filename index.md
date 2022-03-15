@@ -5,7 +5,7 @@ title: Home
 # Dhruva Sambrani's Blog
 
 ::: {.centered}
-![Me!](/assets/images/dp.webp)
+![Me!](assets/images/dp.webp)
 :::
 
 ## Who am I?

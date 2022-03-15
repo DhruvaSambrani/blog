@@ -1,0 +1,5 @@
+#! /bin/sh
+
+cd build && ~/.scripts/tools/gcap && cd ..
+
+
