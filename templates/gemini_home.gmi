@@ -6,4 +6,4 @@
 
 $body$
 
-=> /contents.gmi Posts
+=> contents.gmi Posts

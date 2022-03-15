@@ -22,6 +22,10 @@ function inner_text(el)
   return fullText
 end
 
+function make_gmi(link)
+    return link:gsub(".html", ".gmi")
+end
+
 -- add a block to the 'blocks' output:
 function add_block(el)
   table.insert(blocks, el)
@@ -49,7 +53,7 @@ function link_filter()
       -- print(el.tag .. " " .. el.target)
       return {
         pandoc.LineBreak(),
-        pandoc.Str("=> " .. el.target .. " " .. inner_text(el) ),
+        pandoc.Str("=> " .. make_gmi(el.target) .. " " .. inner_text(el) ),
         pandoc.LineBreak(),
       }
     end,
@@ -76,7 +80,7 @@ function handle_block (el)
     return
   end
   if (el.tag == "Link") then
-    add_block(pandoc.Para(pandoc.Str("=> " .. el.target .. " " .. inner_text(el) )))
+    add_block(pandoc.Para(pandoc.Str("=> " .. make_gmi(el.target) .. " " .. inner_text(el) )))
     return
   end
   if (el.tag == "Str") then

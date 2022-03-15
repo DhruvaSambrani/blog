@@ -10,14 +10,14 @@ mkdir gemini
 cp -r assets build
 
 echo "making html toc"
-find . -maxdepth 1 -name "20*" | sed "s/\.md//g;s/\.\///g" | xargs -I{} echo "- [{}]($pageroot/{}.html)" | pandoc -t html5 --template=templates/random.html -V "pageroot=$pageroot" -s -o build/random.html
+find . -maxdepth 1 -name "20*" | sed "s/\.md//g;s/\.\///g" | xargs -I{} echo "- [{}]($pageroot/{}.html)" | pandoc -t html5 --template=templates/contents.html -V "pageroot=$pageroot" -s -o build/contents.html
 echo "making gemini toc"
 find . -maxdepth 1 -name "20*" | sed "s/\.md//g;s/\.\///g" | xargs -I{} echo "=> /{}.gmi {}" | pandoc -t plain --template=templates/gemini_contents.gmi --lua-filter=filters/gemini.lua -o gemini/contents.gmi -s
 
 echo "making html posts"
 find . -maxdepth 1 -name "20*" | sed "s/\.md//g;s/\.\///g" | xargs -I{} pandoc {}.md -f markdown -t html5 --template=templates/post.html -V "pageroot=$pageroot" -s --highlight-style=breezedark -o build/{}.html
 echo "making gemini posts"
-find . -maxdepth 1 -name "20*" | sed "s/\.md//g;s/\.\///g" | xargs -I{} pandoc {}.md -f markdown -t plain --template=templates/gemini_post.gmi --lua-filter=filters/gemini.lua -o gemini/{}.gmi -s
+find . -maxdepth 1 -name "20*" | sed "s/\.md//g;s/\.\///g" | xargs -I{} pandoc -i {}.md -f markdown -t plain --template=templates/gemini_post.gmi --lua-filter=filters/gemini.lua -o gemini/{}.gmi -s
 
 echo "making html home"
 pandoc index.md -o build/index.html -t html5 --template=templates/home.html -s -V "pageroot=$pageroot"
