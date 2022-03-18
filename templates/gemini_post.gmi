@@ -1,7 +1,7 @@
 $body$
 
 # Links
-=> / Home
-=> /contents.gmi Other Posts
+=> /~dhruva Home
+=> contents.gmi Other Posts
 
 
