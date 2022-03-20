@@ -25,3 +25,6 @@ pandoc index.md -o build/index.html -t html5 --template=templates/home.html -s -
 echo "making gemini home"
 pandoc index.md -o gemini/index.gmi -t plain --template=templates/gemini_home.gmi --lua-filter=filters/gemini.lua -s --wrap=preserve
 
+echo "Compressing html"
+./minify -r -a build -o .
+
