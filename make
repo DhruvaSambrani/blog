@@ -28,3 +28,6 @@ pandoc index.md -o gemini/index.gmi -t plain --template=templates/gemini_home.gm
 echo "Compressing html"
 ./minify -r -a build -o .
 
+echo "Making rss"
+source ./rss_feed > build/feed.xml
+
