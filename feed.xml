@@ -9,105 +9,106 @@
         <pubDate>Fri, 20 Aug 2021 00:00:00 +0530</pubDate>
         <title>My Calendar Setup</title>
         <link>https://dhruvasambrani.github.io/newblog/./2021-08-20_010631</link>
-        <description>$lt;h1 id=&quot;my-calendar-setup&quot;&gt;My calendar setup$lt;/h1&gt;
-$lt;h2 id=&quot;the-problem&quot;&gt;The Problem$lt;/h2&gt;
-$lt;p&gt;I love TUIs. Being able to use just keys to do a lot of things
+        <description>I love TUIs and wanted to use calcurse everywhere</description>
+        <content:encoded><![CDATA[<h1 id="my-calendar-setup">My calendar setup</h1>
+<h2 id="the-problem">The Problem</h2>
+<p>I love TUIs. Being able to use just keys to do a lot of things
 without touching your mouse is pretty awesome. But I can’t constantly be
 on my laptop. I mean sure, with the pandemic, that’s all I’ve done, but
-$lt;del&gt;if$lt;/del&gt; when it gets over, I’ll be on the move. I can’t turn on my
-laptop for every damn thing. I $lt;em&gt;need$lt;/em&gt; to have the things I am
+<del>if</del> when it gets over, I’ll be on the move. I can’t turn on my
+laptop for every damn thing. I <em>need</em> to have the things I am
 working with on my phone too, especially things like the calendar. Now
 you get to read about the things I’ve tried to set up a TUI calendar
-which also syncs to my phone.$lt;/p&gt;
-$lt;h2 id=&quot;on-my-laptop&quot;&gt;On my laptop$lt;/h2&gt;
-$lt;p&gt;Conclusion: Calcurse. Beautiful.$lt;/p&gt;
-$lt;p&gt;I first tried $lt;a
-href=&quot;https://linux.die.net/man/1/remind&quot;&gt;$lt;code&gt;remind$lt;/code&gt;$lt;/a&gt; with
-$lt;a href=&quot;https://github.com/haguenau/wyrd&quot;&gt;$lt;code&gt;wyrd$lt;/code&gt;$lt;/a&gt;, but it
+which also syncs to my phone.</p>
+<h2 id="on-my-laptop">On my laptop</h2>
+<p>Conclusion: Calcurse. Beautiful.</p>
+<p>I first tried <a
+href="https://linux.die.net/man/1/remind"><code>remind</code></a> with
+<a href="https://github.com/haguenau/wyrd"><code>wyrd</code></a>, but it
 just seemed too… much. It’s pretty cool, but it seems to have a very
-condensed UI, and I prefer more open UIs$lt;/p&gt;
-$lt;p&gt;Then I tried $lt;a
-href=&quot;https://www.calcurse.org/&quot;&gt;$lt;code&gt;calcurse$lt;/code&gt;$lt;/a&gt;. With a
+condensed UI, and I prefer more open UIs</p>
+<p>Then I tried <a
+href="https://www.calcurse.org/"><code>calcurse</code></a>. With a
 pretty light UI and sensible (read vim-like) key bindings, it’s super
 easy to get a hang of. Creating, editing and other stuff is pretty easy.
 Also, the notes feature is pretty awesome as it allows me to add pesky
 zoom links which have a tendency to get mixed up. Zoom should just give
 a random name to their meetings, like yellow-monkey-poop or something.
 It might even bring some joy into a dreary life of pointless Zoom
-meetings. Anywho, I pretty much stuck to calcurse.$lt;/p&gt;
-$lt;p&gt;But then I read about khal in $lt;a
-href=&quot;https://hund.tty1.se/2020/08/12/how-to-sync-and-manage-your-caldav-and-carddav-via-the-terminal.html&quot;&gt;hund’s
-blog$lt;/a&gt; and decided to try it. The interface is a bit different, with
+meetings. Anywho, I pretty much stuck to calcurse.</p>
+<p>But then I read about khal in <a
+href="https://hund.tty1.se/2020/08/12/how-to-sync-and-manage-your-caldav-and-carddav-via-the-terminal.html">hund’s
+blog</a> and decided to try it. The interface is a bit different, with
 way too many months shown at once, and the key bindings are weird too.
 It seemed like there were 3 layers to the UI- the month layer, the day
 layer and the event layer. Calcurse on the other hand uses a single
 layer with 3 parallel sections, the to-do, appointments and the month.
-Calcurse just looked better, but khal isn’t far behind.$lt;/p&gt;
-$lt;h2 id=&quot;syncing-with-other-laptops&quot;&gt;Syncing with other laptops$lt;/h2&gt;
-$lt;p&gt;Now comes the real issue. Syncing. Sure I could set up a CalDav
+Calcurse just looked better, but khal isn’t far behind.</p>
+<h2 id="syncing-with-other-laptops">Syncing with other laptops</h2>
+<p>Now comes the real issue. Syncing. Sure I could set up a CalDav
 server, but I don’t have a static IP, and if I go back to my institute,
 I will not be able to access my laptop. Also, my laptop has to always be
 up, which is not the case. Plus, implementing my own set up would be a
-pretty painful task.$lt;/p&gt;
-$lt;p&gt;I could use some online server, but I couldn’t find any services
+pretty painful task.</p>
+<p>I could use some online server, but I couldn’t find any services
 which were not self-hosting. Also, I wouldn’t be able to store the
 calcurse format, instead store an ical which I convert on opening
-calcurse, which seems dumb.$lt;/p&gt;
-$lt;p&gt;My solution was git. Git is device and OS-agnostic, and I already
+calcurse, which seems dumb.</p>
+<p>My solution was git. Git is device and OS-agnostic, and I already
 know how to use it. Plus I get a change history for free, though I
 assume that at some point the history will get too large, and I’ll have
 to squash previous commits, but that’s like a once in a year thing.
 Putting it on a remote server also ensures that it is backed up, so even
-if my beauty of a laptop dies, I’d still have my calendar.$lt;/p&gt;
-$lt;p&gt;You can make the calcurse directory a git repo and add $lt;a
-href=&quot;https://calcurse.org/files/manual.html#_hooks&quot;&gt;hooks$lt;/a&gt; to commit
+if my beauty of a laptop dies, I’d still have my calendar.</p>
+<p>You can make the calcurse directory a git repo and add <a
+href="https://calcurse.org/files/manual.html#_hooks">hooks</a> to commit
 and push in post-save and pull in pre-load. I used GitHub as the remote
 repo, but you could use anything of your choice. Now in another device,
 all I had to do was clone the calcurse directory, and I’d be done. Since
 literally everything from settings to hooks was in the same place, it
-would work exactly the same in all devices.$lt;/p&gt;
-$lt;h2 id=&quot;calcurse-on-android&quot;&gt;Calcurse on Android$lt;/h2&gt;
-$lt;p&gt;The final issue. Phone syncing.$lt;/p&gt;
-$lt;p&gt;My first attempt was to simply try to extend the same set up to
-android via $lt;a href=&quot;https://termux.com/&quot;&gt;termux$lt;/a&gt;. While that worked,
+would work exactly the same in all devices.</p>
+<h2 id="calcurse-on-android">Calcurse on Android</h2>
+<p>The final issue. Phone syncing.</p>
+<p>My first attempt was to simply try to extend the same set up to
+android via <a href="https://termux.com/">termux</a>. While that worked,
 calcurse was pretty hopeless on such a tiny screen with a soft keyboard.
 TUIs are not made for touch screens. I tried wyrd and khal too, but they
-weren’t easy to use either.$lt;/p&gt;
-$lt;p&gt;I knew I could get the calcurse data onto the phone, it was the UI
+weren’t easy to use either.</p>
+<p>I knew I could get the calcurse data onto the phone, it was the UI
 that was a problem. I briefly thought about making an app which could
 parse and display calcurse data, but then remembered the painful thing
 that is Android development. Plus I would basically have to rewrite the
 calcurse parser which itself is in constant development, which would
-mean my thing would have to be in constant development. No, thanks.$lt;/p&gt;
-$lt;p&gt;I then dabbled with exporting an ical file from calcurse on exit,
-which worked fine, and I was able to import it into my calendar($lt;a
-href=&quot;https://www.simplemobiletools.com/calendar/&quot;&gt;Simple Calendar$lt;/a&gt;)
+mean my thing would have to be in constant development. No, thanks.</p>
+<p>I then dabbled with exporting an ical file from calcurse on exit,
+which worked fine, and I was able to import it into my calendar(<a
+href="https://www.simplemobiletools.com/calendar/">Simple Calendar</a>)
 too. At first, it would import the data multiple times, but then I found
-out that adding $lt;code&gt;--export-uid$lt;/code&gt; while exporting from calcurse
+out that adding <code>--export-uid</code> while exporting from calcurse
 prevented that from happening, so that was fine. But the major issue was
 that I would have to run the git pull myself and then open the ics file
 with the calendar. Then too, events which were deleted from calcurse
 wouldn’t be deleted from the calendar, as events would be imported and
-merged to the default calendar.$lt;/p&gt;
-$lt;p&gt;I needed a calendar app which would basically only display the ics
-file, that’s all. Not knowing any apps, I just typed $lt;code&gt;ics$lt;/code&gt;
-into Aurora Droid and I found $lt;a
-href=&quot;https://icsx5.bitfire.at/&quot;&gt;ICSx⁵$lt;/a&gt;. This was perfect. I could
-sync a CalDav server, and it would work perfectly.$lt;/p&gt;
-$lt;p&gt;But this cycled back to the first issue. I don’t want to set up
+merged to the default calendar.</p>
+<p>I needed a calendar app which would basically only display the ics
+file, that’s all. Not knowing any apps, I just typed <code>ics</code>
+into Aurora Droid and I found <a
+href="https://icsx5.bitfire.at/">ICSx⁵</a>. This was perfect. I could
+sync a CalDav server, and it would work perfectly.</p>
+<p>But this cycled back to the first issue. I don’t want to set up
 CalDav. Then I thought of just trying to “sync” a URL which was just the
-link to an ics file. I used the $lt;code&gt;raw$lt;/code&gt; link of the exported
-ics in my calcurse repo, and it worked!$lt;/p&gt;
-$lt;p&gt;Now, any time I edit the calendar on my laptop, it exports the
+link to an ics file. I used the <code>raw</code> link of the exported
+ics in my calcurse repo, and it worked!</p>
+<p>Now, any time I edit the calendar on my laptop, it exports the
 calendar to an ics, commits it the repo, pushes to GitHub. From there,
-ICSx⁵ syncs the changes to my calendar when I refresh in the app.$lt;/p&gt;
-$lt;p&gt;Success!$lt;/p&gt;
-$lt;h2 id=&quot;still-not-the-best&quot;&gt;Still not the best$lt;/h2&gt;
-$lt;p&gt;This set up is still not perfect. I cannot make changes on my
+ICSx⁵ syncs the changes to my calendar when I refresh in the app.</p>
+<p>Success!</p>
+<h2 id="still-not-the-best">Still not the best</h2>
+<p>This set up is still not perfect. I cannot make changes on my
 calendar app which propagate to the laptop. I have to fall back to the
 calcurse CLI or TUI to add an event via termux. It’s not a dealbreaker,
 especially since I don’t have too many updates anyway, but a person can
-dream.$lt;/p&gt;</description>
+dream.</p>]]</content:encoded>
         <author>dhruvasambrani19@gmail.com (Dhruva Sambrani)</author>
         <guid>https://dhruvasambrani.github.io/newblog/./2021-08-20_010631</guid>
       </item>
@@ -115,24 +116,25 @@ dream.$lt;/p&gt;</description>
         <pubDate>Fri, 20 Aug 2021 00:00:00 +0530</pubDate>
         <title>Closer to Truth</title>
         <link>https://dhruvasambrani.github.io/newblog/./2021-08-20_010715</link>
-        <description>$lt;h1 id=&quot;closer-to-truth&quot;&gt;Closer to Truth$lt;/h1&gt;
-$lt;p&gt;I was going to the mall when I saw three people sitting on the bench.
+        <description>A fiction piece</description>
+        <content:encoded><![CDATA[<h1 id="closer-to-truth">Closer to Truth</h1>
+<p>I was going to the mall when I saw three people sitting on the bench.
 As I approached them they started running away. I was surprised by this.
 Pleasantly surprised. It was rare that people ran from me, they
 generally fainted. I don’t really blame them. How often do you see Death
-anyway?$lt;/p&gt;
-$lt;p&gt;Non-believers were generally the ones that reacted worse than the
+anyway?</p>
+<p>Non-believers were generally the ones that reacted worse than the
 believers. I suppose that the believers already plan for this moment.
 I’ve really wondered though, is it that they are closer to the truth
 because they believe in Me or are they further away because they do so
-without any real evidence. I never leave evidence.$lt;/p&gt;
-$lt;hr /&gt;
-$lt;p&gt;$lt;strong&gt;Newspaper article$lt;/strong&gt;$lt;/p&gt;
-$lt;blockquote&gt;
-$lt;p&gt;Three people die as they ran into a speeding truck. The bus driver
-held for homicide. Hearing on…$lt;/p&gt;
-$lt;/blockquote&gt;
-$lt;p&gt;Life was convenient$lt;/p&gt;</description>
+without any real evidence. I never leave evidence.</p>
+<hr />
+<p><strong>Newspaper article</strong></p>
+<blockquote>
+<p>Three people die as they ran into a speeding truck. The bus driver
+held for homicide. Hearing on…</p>
+</blockquote>
+<p>Life was convenient</p>]]</content:encoded>
         <author>dhruvasambrani19@gmail.com (Dhruva Sambrani)</author>
         <guid>https://dhruvasambrani.github.io/newblog/./2021-08-20_010715</guid>
       </item>
@@ -140,42 +142,43 @@ $lt;p&gt;Life was convenient$lt;/p&gt;</description>
         <pubDate>Fri, 20 Aug 2021 00:00:00 +0530</pubDate>
         <title>My thoughts on Gemini</title>
         <link>https://dhruvasambrani.github.io/newblog/./2021-08-29_185046</link>
-        <description>$lt;h1 id=&quot;my-thoughts-on-gemini&quot;&gt;My thoughts on Gemini$lt;/h1&gt;
-$lt;p&gt;As I scrolled through my posts on Mastodon, I came across $lt;a
-href=&quot;https://tilde.team/~scientiac/&quot;&gt;scientiac’s$lt;/a&gt; $lt;a
-href=&quot;gemini://gemini.ctrl-c.club/~scientiac/&quot;&gt;Gemini site$lt;/a&gt; and was
-intrigued by the concept of Gemini.$lt;/p&gt;
-$lt;h2 id=&quot;a-bloated-web&quot;&gt;A Bloated Web$lt;/h2&gt;
-$lt;p&gt;Today’s day websites are filled with lovely designs and transitions
+        <description>Opinions about the 'new' web</description>
+        <content:encoded><![CDATA[<h1 id="my-thoughts-on-gemini">My thoughts on Gemini</h1>
+<p>As I scrolled through my posts on Mastodon, I came across <a
+href="https://tilde.team/~scientiac/">scientiac’s</a> <a
+href="gemini://gemini.ctrl-c.club/~scientiac/">Gemini site</a> and was
+intrigued by the concept of Gemini.</p>
+<h2 id="a-bloated-web">A Bloated Web</h2>
+<p>Today’s day websites are filled with lovely designs and transitions
 and animations and… ads. While there is a certain beauty in these
 websites, they tend to distract users from real content. See any news
 site for example, it is nearly impossible to visit these sites without
-having an AdBlock installed.$lt;/p&gt;
-$lt;p&gt;Some of these UI “enhancements” may be well-intentioned and may even
+having an AdBlock installed.</p>
+<p>Some of these UI “enhancements” may be well-intentioned and may even
 improve User Experience, but they often come at a cost to accessibility.
 As web layouts get more complex, and with barely any standardization,
 those who use assistive devices such as screen readers find it harder to
-navigate websites.$lt;/p&gt;
-$lt;p&gt;Technically too, this has certain costs. Websites are styled with
+navigate websites.</p>
+<p>Technically too, this has certain costs. Websites are styled with
 (S)CSS and JavaScript, which add a ton of functionality to the websites.
 So much so that a web browser can even be entire OS, like the chrome OS.
 But this extra content, which is “hidden” from a user needs to be
 downloaded from some server, which slows down load times and pushes up
-data usage.$lt;/p&gt;
-$lt;p&gt;From a security standpoint too, arbitrary JS, especially “closed
+data usage.</p>
+<p>From a security standpoint too, arbitrary JS, especially “closed
 source” JS can pose threats. In order to mitigate these threats,
 additional features like sandboxing need to be implemented which further
-increases the weight of the browser.$lt;/p&gt;
-$lt;p&gt;Finally, an increasingly bloated web experience leads to people
+increases the weight of the browser.</p>
+<p>Finally, an increasingly bloated web experience leads to people
 having to buy newer hardware as the software gets more and more
 demanding. This leads to increased consumerism and e-Waste, which is a
 whole another problem that we have to solve. It would make sense if
 truly newer features which add to the user experience are introduced,
 but it seems like efforts are put more towards increasing the data
 collected from users or adding unnecessary UI transitions which reduce
-accessibility.$lt;/p&gt;
-$lt;h2 id=&quot;the-solution-is-gemini&quot;&gt;The Solution is Gemini$lt;/h2&gt;
-$lt;p&gt;Most of these issues can be solved by “simply” enforcing standardized
+accessibility.</p>
+<h2 id="the-solution-is-gemini">The Solution is Gemini</h2>
+<p>Most of these issues can be solved by “simply” enforcing standardized
 accessibility features, and better optimizers which strip out
 unnecessary CSS, and educating web designers that fancy design is not
 necessarily good design. But enforcing is damn near impossible(which is
@@ -183,43 +186,43 @@ a good thing, as any mechanism that can enforce design can also enforce
 content), finding unused CSS classes is a difficult process(someone
 should check if it is NP-Hard), and even if web designers make simple
 designs, a focus on fast deployment forces web-builders to use bloated
-frameworks.$lt;/p&gt;
-$lt;p&gt;Gemini has a completely different take on this issue. In order to
+frameworks.</p>
+<p>Gemini has a completely different take on this issue. In order to
 solve the issue for a smaller subset of websites, especially those of
 the blog/microblog variety, news sites and text heavy sites, Gemini
-completely restricts the kind of content that can be displayed.$lt;/p&gt;
-$lt;p&gt;The only things that can be displayed are 3 levels of headings,
+completely restricts the kind of content that can be displayed.</p>
+<p>The only things that can be displayed are 3 levels of headings,
 unformatted text, pre-formatted text, and out of text links. Each site
 must load within one request of the server. No images or other
 multimedia can be displayed inline, but browsers can pass over the link
 to other media players for a perfectly normal multimedia viewing. This
 allows clients to implement just one thing, and do it properly (yay, the
 Unix way!). The syntax too is stupidly simple, with no tags, no complex
-parsing, nothing. Just pure unadulterated content.$lt;/p&gt;
-$lt;p&gt;This simple website can then be rendered with any font, any colors,
-any OS. Hell, you can just $lt;code&gt;curl$lt;/code&gt;, $lt;code&gt;less$lt;/code&gt; and
-$lt;code&gt;grep$lt;/code&gt; your way through it. A lack of layouting implies text
-readers can easily do what they are designed to do — read text.$lt;/p&gt;
-$lt;p&gt;This simplicity warms my Vim-using, markdown loving heart.$lt;/p&gt;
-$lt;h2 id=&quot;but-is-it&quot;&gt;…but, is it?$lt;/h2&gt;
-$lt;p&gt;The Gemini protocol can be extensively minimalist, with people
+parsing, nothing. Just pure unadulterated content.</p>
+<p>This simple website can then be rendered with any font, any colors,
+any OS. Hell, you can just <code>curl</code>, <code>less</code> and
+<code>grep</code> your way through it. A lack of layouting implies text
+readers can easily do what they are designed to do — read text.</p>
+<p>This simplicity warms my Vim-using, markdown loving heart.</p>
+<h2 id="but-is-it">…but, is it?</h2>
+<p>The Gemini protocol can be extensively minimalist, with people
 debating on whether favicons in the form of emojis should be implemented
 or not. While every site looking the same could be extremely useful, as
 my friend put it, is r/aBoringUtopia. It prevents web developers from
 expressing themselves via design. Sure, Unicode art can provide some
 relief, but it is still lacking. I would have preferred at least “pure”
 markdown level formatting. But a valid response to this can be found on
-the $lt;a href=&quot;https://gemini.circumlunar.space/&quot;&gt;Project Gemini
-website$lt;/a&gt; - &amp;gt; Gemini will not replace the web$lt;/p&gt;
-$lt;p&gt;I don’t want an image sharing website on Gemini, though it could very
+the <a href="https://gemini.circumlunar.space/">Project Gemini
+website</a> - &gt; Gemini will not replace the web</p>
+<p>I don’t want an image sharing website on Gemini, though it could very
 well be implemented by calling external applications. I don’t want a
 banking solution on Gemini, because I would prefer a more secure
 implementation(but open, one can dream) on the web. But I sure as hell
 don’t want to see 5 transitions, autoscrolling, 3 sign up boxes, 4
 newsletter boxes, 15 cookie policies, 10 TnCs and a million ads just so
 that I can be depressed by a news article highlighting the effects of
-global warming. Give me just content.$lt;/p&gt;
-$lt;p&gt;Content is king.$lt;/p&gt;</description>
+global warming. Give me just content.</p>
+<p>Content is king.</p>]]</content:encoded>
         <author>dhruvasambrani19@gmail.com (Dhruva Sambrani)</author>
         <guid>https://dhruvasambrani.github.io/newblog/./2021-08-29_185046</guid>
       </item>
@@ -227,126 +230,127 @@ $lt;p&gt;Content is king.$lt;/p&gt;</description>
         <pubDate>Fri, 20 Aug 2021 00:00:00 +0530</pubDate>
         <title>My blog on Gemini</title>
         <link>https://dhruvasambrani.github.io/newblog/./2021-09-06_010053</link>
-        <description>$lt;h1 id=&quot;my-blog-on-gemini&quot;&gt;My blog on Gemini$lt;/h1&gt;
-$lt;p&gt;My $lt;a href=&quot;../2021-08-29_185046&quot;&gt;previous post$lt;/a&gt; was a brief intro
+        <description>My weird setup to get my blog on Gemini</description>
+        <content:encoded><![CDATA[<h1 id="my-blog-on-gemini">My blog on Gemini</h1>
+<p>My <a href="../2021-08-29_185046">previous post</a> was a brief intro
 and what I feel about the Gemini protocol. All said and done, I thought
 that it wouldn’t hurt to “expand” my blog to the Gemini space too. This
 blog is about what I had to do to get my blog to the Gemini space. The
-blog is at $lt;a
-href=&quot;gemini://gemini.ctrl-c.club/~dhruva&quot;&gt;gemini://gemini.ctrl-c.club/~dhruva$lt;/a&gt;$lt;/p&gt;
-$lt;p&gt;Tl;dr — LOL no, read the whole thing.$lt;/p&gt;
-$lt;h2 id=&quot;server-and-hosting&quot;&gt;Server and Hosting$lt;/h2&gt;
-$lt;p&gt;The first thing I needed was a server to host my Gemini capsule. For
+blog is at <a
+href="gemini://gemini.ctrl-c.club/~dhruva">gemini://gemini.ctrl-c.club/~dhruva</a></p>
+<p>Tl;dr — LOL no, read the whole thing.</p>
+<h2 id="server-and-hosting">Server and Hosting</h2>
+<p>The first thing I needed was a server to host my Gemini capsule. For
 my HTTP site, I use GitHub pages, which is super easy to set up because
 I don’t need to manage my own server. But is there something similar for
-Gemini?$lt;/p&gt;
-$lt;p&gt;Turns out, it’s even better. Tildeverse is a universe of Tilde server
+Gemini?</p>
+<p>Turns out, it’s even better. Tildeverse is a universe of Tilde server
 instances. What’s a tilde server? It’s a public server which you can
 request for an account on, and you can just… use it. So I signed up for
-an account on the $lt;a href=&quot;https://ctrl-c.club/&quot;&gt;ctrl-c club$lt;/a&gt; tilde
+an account on the <a href="https://ctrl-c.club/">ctrl-c club</a> tilde
 instance. In about a day I received my ssh details, and I was up and
-running in about 15 mins.$lt;/p&gt;
-$lt;h2 id=&quot;using-franklin&quot;&gt;Using Franklin$lt;/h2&gt;
-$lt;p&gt;My first approach was the most straightforward one. Git clone my
+running in about 15 mins.</p>
+<h2 id="using-franklin">Using Franklin</h2>
+<p>My first approach was the most straightforward one. Git clone my
 blog, install Julia, run the Franklin build step, then do something to
 the HTML so that it would output the gmi file. The problem with this
 however is that Julia and the .julia directories are HUGE. My disk usage
 quickly hit the soft limit of 1Gb, and I really did not want to exploit
-the courtesy of the ctrl-c club.$lt;/p&gt;
-$lt;p&gt;I could try and attempt to only parse the markdown posts to gmi, but
+the courtesy of the ctrl-c club.</p>
+<p>I could try and attempt to only parse the markdown posts to gmi, but
 then all the Franklin specific content would have to be reparsed. I
-definitely don’t want to reimplement Franklin.jl. What then?$lt;/p&gt;
-$lt;h2 id=&quot;scraping-the-blog&quot;&gt;Scraping the blog$lt;/h2&gt;
-$lt;p&gt;So the constraint is that I cannot build the HTML files on the tilde
+definitely don’t want to reimplement Franklin.jl. What then?</p>
+<h2 id="scraping-the-blog">Scraping the blog</h2>
+<p>So the constraint is that I cannot build the HTML files on the tilde
 server, but I need to build it before I can convert it to Gemini files.
 This catch-22 situation can only be solved by putting the Franklin build
 step on some other device, and only do the HTML → Gemini part of it on
-the tilde server.$lt;/p&gt;
-$lt;p&gt;Why not just get the rendered HTML directly from the website and
+the tilde server.</p>
+<p>Why not just get the rendered HTML directly from the website and
 convert it? But for this I would need to find the correct locations.
-Well, thank god for $lt;code&gt;sitemap.xml$lt;/code&gt;.$lt;/p&gt;
-$lt;p&gt;So I curl the $lt;code&gt;sitemap.xml$lt;/code&gt;, grep for “posts/”, sed out
+Well, thank god for <code>sitemap.xml</code>.</p>
+<p>So I curl the <code>sitemap.xml</code>, grep for “posts/”, sed out
 the useless parts, and for each link, download and convert. Voilà, one
-script to sync the Gemini server with the HTML blog!$lt;/p&gt;
-$lt;h2 id=&quot;some-html-cleanup&quot;&gt;Some HTML cleanup$lt;/h2&gt;
-$lt;p&gt;While the previous solution works from a technical point of view, the
+script to sync the Gemini server with the HTML blog!</p>
+<h2 id="some-html-cleanup">Some HTML cleanup</h2>
+<p>While the previous solution works from a technical point of view, the
 end result is… illegible. The problem is that the HTML page has a lot of
 links and layout which any HTML → gmi converter attempts to convert,
 leading to a lot of noise. I needed to only convert the content part of
-the page, not the entire thing.$lt;/p&gt;
-$lt;p&gt;However, the content $lt;code&gt;div$lt;/code&gt; only has a class which
-differentiates it from the rest of the $lt;code&gt;div$lt;/code&gt;s. While regexing
-the start of the content is easy, finding the closing $lt;code&gt;div$lt;/code&gt;
+the page, not the entire thing.</p>
+<p>However, the content <code>div</code> only has a class which
+differentiates it from the rest of the <code>div</code>s. While regexing
+the start of the content is easy, finding the closing <code>div</code>
 tag is pretty difficult with regex(technically impossible, as XML is a
 CFG, and HTML isn’t even that, but it can be done with a little extended
 regex and prayers to god.). I would need an entire HTML parser from some
 language, and write a proper program which would parse the HTML to get
-me the right $lt;code&gt;div$lt;/code&gt;. This was again going into the territory
-of too much work.$lt;/p&gt;
-$lt;p&gt;All I needed was a way to demarcate the content. I could do that with
+me the right <code>div</code>. This was again going into the territory
+of too much work.</p>
+<p>All I needed was a way to demarcate the content. I could do that with
 comments, but those would be removed on build. So the trick I came up
-with was to add an extra $lt;code&gt;contentthing$lt;/code&gt; tag where the content
-would be in the build templates. Since $lt;code&gt;contentthing$lt;/code&gt; is not
+with was to add an extra <code>contentthing</code> tag where the content
+would be in the build templates. Since <code>contentthing</code> is not
 defined by anyone at all, no browser should render the page any
 differently than before. Writing a regex to find the content inside was
 now pretty easy. The irony however is that Gemini was made to get rid of
-non-standard HTML.$lt;/p&gt;
-$lt;p&gt;Another tiny issue was that Franklin added an extra $lt;code&gt;p$lt;/code&gt;
-block inside a $lt;code&gt;blockquote$lt;/code&gt;. This I fixed with a sed
-replace.$lt;/p&gt;
-$lt;h2 id=&quot;the-htmlgmi-script&quot;&gt;The HTML→gmi script$lt;/h2&gt;
-$lt;p&gt;This was pretty straightforward. $lt;a
-href=&quot;https://github.com/LukeEmmet/html2gmi&quot;&gt;html2gmi$lt;/a&gt; is a go script
-which does the job very well.$lt;/p&gt;
-$lt;h2 id=&quot;index.gmi&quot;&gt;index.gmi$lt;/h2&gt;
-$lt;p&gt;While the posts were nicely converted, there was no way that the blog
+non-standard HTML.</p>
+<p>Another tiny issue was that Franklin added an extra <code>p</code>
+block inside a <code>blockquote</code>. This I fixed with a sed
+replace.</p>
+<h2 id="the-htmlgmi-script">The HTML→gmi script</h2>
+<p>This was pretty straightforward. <a
+href="https://github.com/LukeEmmet/html2gmi">html2gmi</a> is a go script
+which does the job very well.</p>
+<h2 id="index.gmi">index.gmi</h2>
+<p>While the posts were nicely converted, there was no way that the blog
 index page could be translated directly. I anyway needed an index page
 which was unique to the Gemini capsule. This I did by writing a template
 index.gmi which a python script fills with the posts. Now my capsule is
-complete.$lt;/p&gt;
-$lt;h2 id=&quot;conclusion&quot;&gt;Conclusion$lt;/h2&gt;
-$lt;p&gt;In the end, the final script is this -$lt;/p&gt;
-$lt;div class=&quot;sourceCode&quot; id=&quot;cb1&quot;&gt;$lt;pre class=&quot;sourceCode sh&quot;&gt;$lt;code class=&quot;sourceCode bash&quot;&gt;$lt;span id=&quot;cb1-1&quot;&gt;$lt;a href=&quot;#cb1-1&quot; aria-hidden=&quot;true&quot; tabindex=&quot;-1&quot;&gt;$lt;/a&gt;$lt;span class=&quot;co&quot;&gt;#! /bin/bash$lt;/span&gt;$lt;/span&gt;
-$lt;span id=&quot;cb1-2&quot;&gt;$lt;a href=&quot;#cb1-2&quot; aria-hidden=&quot;true&quot; tabindex=&quot;-1&quot;&gt;$lt;/a&gt;$lt;span class=&quot;fu&quot;&gt;myf()$lt;/span&gt; $lt;span class=&quot;kw&quot;&gt;{$lt;/span&gt;$lt;/span&gt;
-$lt;span id=&quot;cb1-3&quot;&gt;$lt;a href=&quot;#cb1-3&quot; aria-hidden=&quot;true&quot; tabindex=&quot;-1&quot;&gt;$lt;/a&gt;    $lt;span class=&quot;va&quot;&gt;out$lt;/span&gt;$lt;span class=&quot;op&quot;&gt;=$lt;/span&gt;$lt;span class=&quot;va&quot;&gt;$($lt;/span&gt;$lt;span class=&quot;fu&quot;&gt;basename$lt;/span&gt; $lt;span class=&quot;va&quot;&gt;$($lt;/span&gt;$lt;span class=&quot;fu&quot;&gt;dirname$lt;/span&gt; $lt;span class=&quot;va&quot;&gt;$1))$lt;/span&gt;.gmi$lt;/span&gt;
-$lt;span id=&quot;cb1-4&quot;&gt;$lt;a href=&quot;#cb1-4&quot; aria-hidden=&quot;true&quot; tabindex=&quot;-1&quot;&gt;$lt;/a&gt;    $lt;span class=&quot;bu&quot;&gt;echo$lt;/span&gt; $lt;span class=&quot;va&quot;&gt;$1$lt;/span&gt;$lt;/span&gt;
-$lt;span id=&quot;cb1-5&quot;&gt;$lt;a href=&quot;#cb1-5&quot; aria-hidden=&quot;true&quot; tabindex=&quot;-1&quot;&gt;$lt;/a&gt;    $lt;span class=&quot;ex&quot;&gt;curl$lt;/span&gt; $lt;span class=&quot;at&quot;&gt;-sL$lt;/span&gt; $lt;span class=&quot;va&quot;&gt;$1$lt;/span&gt; $lt;span class=&quot;kw&quot;&gt;|$lt;/span&gt;$lt;/span&gt;
-$lt;span id=&quot;cb1-6&quot;&gt;$lt;a href=&quot;#cb1-6&quot; aria-hidden=&quot;true&quot; tabindex=&quot;-1&quot;&gt;$lt;/a&gt;        $lt;span class=&quot;fu&quot;&gt;sed$lt;/span&gt; $lt;span class=&quot;at&quot;&gt;-E$lt;/span&gt; $lt;span class=&quot;st&quot;&gt;&amp;quot;s/(.*&amp;lt;contentthing&amp;gt;|&amp;lt;\/contentthing&amp;gt;.*)//g&amp;quot;$lt;/span&gt; $lt;span class=&quot;kw&quot;&gt;|$lt;/span&gt;$lt;/span&gt;
-$lt;span id=&quot;cb1-7&quot;&gt;$lt;a href=&quot;#cb1-7&quot; aria-hidden=&quot;true&quot; tabindex=&quot;-1&quot;&gt;$lt;/a&gt;        $lt;span class=&quot;fu&quot;&gt;sed$lt;/span&gt; $lt;span class=&quot;at&quot;&gt;-E$lt;/span&gt; $lt;span class=&quot;st&quot;&gt;&amp;quot;s/&amp;lt;blockquote&amp;gt; &amp;lt;p&amp;gt;/&amp;lt;blockquote&amp;gt;/g&amp;quot;$lt;/span&gt; $lt;span class=&quot;kw&quot;&gt;|$lt;/span&gt;$lt;/span&gt;
-$lt;span id=&quot;cb1-8&quot;&gt;$lt;a href=&quot;#cb1-8&quot; aria-hidden=&quot;true&quot; tabindex=&quot;-1&quot;&gt;$lt;/a&gt;        $lt;span class=&quot;fu&quot;&gt;sed$lt;/span&gt; $lt;span class=&quot;at&quot;&gt;-E$lt;/span&gt; $lt;span class=&quot;st&quot;&gt;&amp;quot;s/&amp;lt;\/p&amp;gt; &amp;lt;\/blockquote&amp;gt;/&amp;lt;\/blockquote&amp;gt;/g&amp;quot;$lt;/span&gt; $lt;span class=&quot;kw&quot;&gt;|$lt;/span&gt;$lt;/span&gt;
-$lt;span id=&quot;cb1-9&quot;&gt;$lt;a href=&quot;#cb1-9&quot; aria-hidden=&quot;true&quot; tabindex=&quot;-1&quot;&gt;$lt;/a&gt;        $lt;span class=&quot;va&quot;&gt;$HOME$lt;/span&gt;$lt;span class=&quot;ex&quot;&gt;/go/bin/html2gmi$lt;/span&gt; $lt;span class=&quot;at&quot;&gt;-met$lt;/span&gt; $lt;span class=&quot;at&quot;&gt;-l$lt;/span&gt; 1 $lt;span class=&quot;at&quot;&gt;-o$lt;/span&gt; $lt;span class=&quot;va&quot;&gt;$HOME$lt;/span&gt;/public_gemini/$lt;span class=&quot;va&quot;&gt;$out$lt;/span&gt;$lt;/span&gt;
-$lt;span id=&quot;cb1-10&quot;&gt;$lt;a href=&quot;#cb1-10&quot; aria-hidden=&quot;true&quot; tabindex=&quot;-1&quot;&gt;$lt;/a&gt;$lt;span class=&quot;kw&quot;&gt;}$lt;/span&gt;$lt;/span&gt;
-$lt;span id=&quot;cb1-11&quot;&gt;$lt;a href=&quot;#cb1-11&quot; aria-hidden=&quot;true&quot; tabindex=&quot;-1&quot;&gt;$lt;/a&gt;$lt;span class=&quot;bu&quot;&gt;export$lt;/span&gt; $lt;span class=&quot;at&quot;&gt;-f$lt;/span&gt; $lt;span class=&quot;va&quot;&gt;myf$lt;/span&gt;$lt;/span&gt;
-$lt;span id=&quot;cb1-12&quot;&gt;$lt;a href=&quot;#cb1-12&quot; aria-hidden=&quot;true&quot; tabindex=&quot;-1&quot;&gt;$lt;/a&gt;$lt;span class=&quot;fu&quot;&gt;rm$lt;/span&gt; $lt;span class=&quot;at&quot;&gt;-rf$lt;/span&gt; $lt;span class=&quot;va&quot;&gt;$HOME$lt;/span&gt;/public_gemini/$lt;span class=&quot;pp&quot;&gt;*$lt;/span&gt;$lt;/span&gt;
-$lt;span id=&quot;cb1-13&quot;&gt;$lt;a href=&quot;#cb1-13&quot; aria-hidden=&quot;true&quot; tabindex=&quot;-1&quot;&gt;$lt;/a&gt;$lt;span class=&quot;ex&quot;&gt;curl$lt;/span&gt; $lt;span class=&quot;at&quot;&gt;-s$lt;/span&gt; https://dhruvasambrani.github.io/blog/sitemap.xml $lt;span class=&quot;at&quot;&gt;--$lt;/span&gt; $lt;span class=&quot;kw&quot;&gt;|$lt;/span&gt; $lt;span class=&quot;fu&quot;&gt;grep$lt;/span&gt; .$lt;span class=&quot;pp&quot;&gt;*$lt;/span&gt;/posts/2.$lt;span class=&quot;pp&quot;&gt;*$lt;/span&gt; $lt;span class=&quot;kw&quot;&gt;|$lt;/span&gt; $lt;span class=&quot;fu&quot;&gt;sed$lt;/span&gt; $lt;span class=&quot;at&quot;&gt;-E$lt;/span&gt; $lt;span class=&quot;st&quot;&gt;&amp;quot;s/([ ]*&amp;lt;\/*loc&amp;gt;)//g&amp;quot;$lt;/span&gt; $lt;span class=&quot;kw&quot;&gt;|$lt;/span&gt; $lt;span class=&quot;fu&quot;&gt;xargs$lt;/span&gt; $lt;span class=&quot;at&quot;&gt;-I{}$lt;/span&gt; $lt;span class=&quot;at&quot;&gt;--$lt;/span&gt; bash $lt;span class=&quot;at&quot;&gt;-c$lt;/span&gt; $lt;span class=&quot;st&quot;&gt;&amp;#39;myf &amp;quot;{}&amp;quot;&amp;#39;$lt;/span&gt;$lt;/span&gt;
-$lt;span id=&quot;cb1-14&quot;&gt;$lt;a href=&quot;#cb1-14&quot; aria-hidden=&quot;true&quot; tabindex=&quot;-1&quot;&gt;$lt;/a&gt;$lt;span class=&quot;ex&quot;&gt;python3$lt;/span&gt; makeindex.py$lt;/span&gt;$lt;/code&gt;$lt;/pre&gt;$lt;/div&gt;
-$lt;p&gt;where $lt;code&gt;makeindex.py$lt;/code&gt; is$lt;/p&gt;
-$lt;div class=&quot;sourceCode&quot; id=&quot;cb2&quot;&gt;$lt;pre
-class=&quot;sourceCode python&quot;&gt;$lt;code class=&quot;sourceCode python&quot;&gt;$lt;span id=&quot;cb2-1&quot;&gt;$lt;a href=&quot;#cb2-1&quot; aria-hidden=&quot;true&quot; tabindex=&quot;-1&quot;&gt;$lt;/a&gt;$lt;span class=&quot;im&quot;&gt;import$lt;/span&gt; os$lt;/span&gt;
-$lt;span id=&quot;cb2-2&quot;&gt;$lt;a href=&quot;#cb2-2&quot; aria-hidden=&quot;true&quot; tabindex=&quot;-1&quot;&gt;$lt;/a&gt;$lt;span class=&quot;kw&quot;&gt;def$lt;/span&gt; listposts():$lt;/span&gt;
-$lt;span id=&quot;cb2-3&quot;&gt;$lt;a href=&quot;#cb2-3&quot; aria-hidden=&quot;true&quot; tabindex=&quot;-1&quot;&gt;$lt;/a&gt;    files $lt;span class=&quot;op&quot;&gt;=$lt;/span&gt; os.listdir($lt;span class=&quot;st&quot;&gt;&amp;quot;../public_gemini/&amp;quot;$lt;/span&gt;)$lt;/span&gt;
-$lt;span id=&quot;cb2-4&quot;&gt;$lt;a href=&quot;#cb2-4&quot; aria-hidden=&quot;true&quot; tabindex=&quot;-1&quot;&gt;$lt;/a&gt;    files.sort()$lt;/span&gt;
-$lt;span id=&quot;cb2-5&quot;&gt;$lt;a href=&quot;#cb2-5&quot; aria-hidden=&quot;true&quot; tabindex=&quot;-1&quot;&gt;$lt;/a&gt;    $lt;span class=&quot;cf&quot;&gt;return$lt;/span&gt;($lt;span class=&quot;st&quot;&gt;&amp;quot;$lt;/span&gt;$lt;span class=&quot;ch&quot;&gt;\n$lt;/span&gt;$lt;span class=&quot;st&quot;&gt;&amp;quot;$lt;/span&gt;.join([$lt;span class=&quot;st&quot;&gt;&amp;quot;=&amp;gt; &amp;quot;$lt;/span&gt;$lt;span class=&quot;op&quot;&gt;+$lt;/span&gt;_file $lt;span class=&quot;cf&quot;&gt;for$lt;/span&gt; _file $lt;span class=&quot;kw&quot;&gt;in$lt;/span&gt; files]))$lt;/span&gt;
-$lt;span id=&quot;cb2-6&quot;&gt;$lt;a href=&quot;#cb2-6&quot; aria-hidden=&quot;true&quot; tabindex=&quot;-1&quot;&gt;$lt;/a&gt;$lt;span class=&quot;cf&quot;&gt;with$lt;/span&gt; $lt;span class=&quot;bu&quot;&gt;open$lt;/span&gt;($lt;span class=&quot;st&quot;&gt;&amp;quot;template.gmi&amp;quot;$lt;/span&gt;) $lt;span class=&quot;im&quot;&gt;as$lt;/span&gt; f:$lt;/span&gt;
-$lt;span id=&quot;cb2-7&quot;&gt;$lt;a href=&quot;#cb2-7&quot; aria-hidden=&quot;true&quot; tabindex=&quot;-1&quot;&gt;$lt;/a&gt;    s $lt;span class=&quot;op&quot;&gt;=$lt;/span&gt; f.read()$lt;/span&gt;
-$lt;span id=&quot;cb2-8&quot;&gt;$lt;a href=&quot;#cb2-8&quot; aria-hidden=&quot;true&quot; tabindex=&quot;-1&quot;&gt;$lt;/a&gt;    final $lt;span class=&quot;op&quot;&gt;=$lt;/span&gt; s.replace($lt;span class=&quot;st&quot;&gt;&amp;quot;$lt;/span&gt;$lt;span class=&quot;sc&quot;&gt;{{$lt;/span&gt;$lt;span class=&quot;st&quot;&gt; listposts $lt;/span&gt;$lt;span class=&quot;sc&quot;&gt;}}$lt;/span&gt;$lt;span class=&quot;st&quot;&gt;&amp;quot;$lt;/span&gt;, listposts())$lt;/span&gt;
-$lt;span id=&quot;cb2-9&quot;&gt;$lt;a href=&quot;#cb2-9&quot; aria-hidden=&quot;true&quot; tabindex=&quot;-1&quot;&gt;$lt;/a&gt;    $lt;span class=&quot;cf&quot;&gt;with$lt;/span&gt; $lt;span class=&quot;bu&quot;&gt;open$lt;/span&gt;($lt;span class=&quot;st&quot;&gt;&amp;quot;../public_gemini/index.gmi&amp;quot;$lt;/span&gt;, $lt;span class=&quot;st&quot;&gt;&amp;quot;w&amp;quot;$lt;/span&gt;) $lt;span class=&quot;im&quot;&gt;as$lt;/span&gt; out:$lt;/span&gt;
-$lt;span id=&quot;cb2-10&quot;&gt;$lt;a href=&quot;#cb2-10&quot; aria-hidden=&quot;true&quot; tabindex=&quot;-1&quot;&gt;$lt;/a&gt;        out.write(final)$lt;/span&gt;$lt;/code&gt;$lt;/pre&gt;$lt;/div&gt;
-$lt;p&gt;By simply running $lt;code&gt;. makegemini.sh$lt;/code&gt;, I can recreate my
-blog entirely in Gemini.$lt;/p&gt;
-$lt;h2 id=&quot;things-i-can-improve&quot;&gt;Things I can improve$lt;/h2&gt;
-$lt;p&gt;Definitely, there are still some things I can improve$lt;/p&gt;
-$lt;ol type=&quot;1&quot;&gt;
-$lt;li&gt;The posts listed in the Gemini only have the filename and not the
+complete.</p>
+<h2 id="conclusion">Conclusion</h2>
+<p>In the end, the final script is this -</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">#! /bin/bash</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">myf()</span> <span class="kw">{</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>    <span class="va">out</span><span class="op">=</span><span class="va">$(</span><span class="fu">basename</span> <span class="va">$(</span><span class="fu">dirname</span> <span class="va">$1))</span>.gmi</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>    <span class="bu">echo</span> <span class="va">$1</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>    <span class="ex">curl</span> <span class="at">-sL</span> <span class="va">$1</span> <span class="kw">|</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>        <span class="fu">sed</span> <span class="at">-E</span> <span class="st">&quot;s/(.*&lt;contentthing&gt;|&lt;\/contentthing&gt;.*)//g&quot;</span> <span class="kw">|</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>        <span class="fu">sed</span> <span class="at">-E</span> <span class="st">&quot;s/&lt;blockquote&gt; &lt;p&gt;/&lt;blockquote&gt;/g&quot;</span> <span class="kw">|</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>        <span class="fu">sed</span> <span class="at">-E</span> <span class="st">&quot;s/&lt;\/p&gt; &lt;\/blockquote&gt;/&lt;\/blockquote&gt;/g&quot;</span> <span class="kw">|</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>        <span class="va">$HOME</span><span class="ex">/go/bin/html2gmi</span> <span class="at">-met</span> <span class="at">-l</span> 1 <span class="at">-o</span> <span class="va">$HOME</span>/public_gemini/<span class="va">$out</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="kw">}</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="bu">export</span> <span class="at">-f</span> <span class="va">myf</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="fu">rm</span> <span class="at">-rf</span> <span class="va">$HOME</span>/public_gemini/<span class="pp">*</span></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="ex">curl</span> <span class="at">-s</span> https://dhruvasambrani.github.io/blog/sitemap.xml <span class="at">--</span> <span class="kw">|</span> <span class="fu">grep</span> .<span class="pp">*</span>/posts/2.<span class="pp">*</span> <span class="kw">|</span> <span class="fu">sed</span> <span class="at">-E</span> <span class="st">&quot;s/([ ]*&lt;\/*loc&gt;)//g&quot;</span> <span class="kw">|</span> <span class="fu">xargs</span> <span class="at">-I{}</span> <span class="at">--</span> bash <span class="at">-c</span> <span class="st">&#39;myf &quot;{}&quot;&#39;</span></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="ex">python3</span> makeindex.py</span></code></pre></div>
+<p>where <code>makeindex.py</code> is</p>
+<div class="sourceCode" id="cb2"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> os</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> listposts():</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>    files <span class="op">=</span> os.listdir(<span class="st">&quot;../public_gemini/&quot;</span>)</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>    files.sort()</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span>(<span class="st">&quot;</span><span class="ch">\n</span><span class="st">&quot;</span>.join([<span class="st">&quot;=&gt; &quot;</span><span class="op">+</span>_file <span class="cf">for</span> _file <span class="kw">in</span> files]))</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="cf">with</span> <span class="bu">open</span>(<span class="st">&quot;template.gmi&quot;</span>) <span class="im">as</span> f:</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>    s <span class="op">=</span> f.read()</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>    final <span class="op">=</span> s.replace(<span class="st">&quot;</span><span class="sc">{{</span><span class="st"> listposts </span><span class="sc">}}</span><span class="st">&quot;</span>, listposts())</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>    <span class="cf">with</span> <span class="bu">open</span>(<span class="st">&quot;../public_gemini/index.gmi&quot;</span>, <span class="st">&quot;w&quot;</span>) <span class="im">as</span> out:</span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>        out.write(final)</span></code></pre></div>
+<p>By simply running <code>. makegemini.sh</code>, I can recreate my
+blog entirely in Gemini.</p>
+<h2 id="things-i-can-improve">Things I can improve</h2>
+<p>Definitely, there are still some things I can improve</p>
+<ol type="1">
+<li>The posts listed in the Gemini only have the filename and not the
 post title. This makes it hard for viewers to find a particular
-post$lt;/li&gt;
-$lt;li&gt;Post pages do not link back to the index page$lt;/li&gt;
-$lt;li&gt;Internal links may not work$lt;/li&gt;
-$lt;li&gt;HTML → Gemini isn’t the best, because scripts attempt to retain
+post</li>
+<li>Post pages do not link back to the index page</li>
+<li>Internal links may not work</li>
+<li>HTML → Gemini isn’t the best, because scripts attempt to retain
 content while ignoring formatting, where in some places, it may be
-better to just leave the content on the whole.$lt;/li&gt;
-$lt;/ol&gt;
-$lt;p&gt;But on the whole, I’m pleased with the present output.$lt;/p&gt;</description>
+better to just leave the content on the whole.</li>
+</ol>
+<p>But on the whole, I’m pleased with the present output.</p>]]</content:encoded>
         <author>dhruvasambrani19@gmail.com (Dhruva Sambrani)</author>
         <guid>https://dhruvasambrani.github.io/newblog/./2021-09-06_010053</guid>
       </item>
