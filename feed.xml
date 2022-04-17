@@ -6,7 +6,7 @@
     <ttl>60</ttl>
     <atom:link href="https://dhruvasambrani.github.io/newblog/feed.xml" rel="self" type="application/rss+xml" />
     <item>
-        <pubDate>Fri, 20 08 2021 00:00:00 +0530</pubDate>
+        <pubDate>Fri, 20 Aug 2021 00:00:00 +0530</pubDate>
         <title>My Calendar Setup</title>
         <link>https://dhruvasambrani.github.io/newblog/./2021-08-20_010631</link>
         <description>$lt;h1 id=&quot;my-calendar-setup&quot;&gt;My calendar setup$lt;/h1&gt;
@@ -112,7 +112,7 @@ dream.$lt;/p&gt;</description>
         <guid>https://dhruvasambrani.github.io/newblog/./2021-08-20_010631</guid>
       </item>
     <item>
-        <pubDate>Fri, 20 08 2021 00:00:00 +0530</pubDate>
+        <pubDate>Fri, 20 Aug 2021 00:00:00 +0530</pubDate>
         <title>Closer to Truth</title>
         <link>https://dhruvasambrani.github.io/newblog/./2021-08-20_010715</link>
         <description>$lt;h1 id=&quot;closer-to-truth&quot;&gt;Closer to Truth$lt;/h1&gt;
@@ -137,7 +137,7 @@ $lt;p&gt;Life was convenient$lt;/p&gt;</description>
         <guid>https://dhruvasambrani.github.io/newblog/./2021-08-20_010715</guid>
       </item>
     <item>
-        <pubDate>Sun, 29 08 2021 00:00:00 +0530</pubDate>
+        <pubDate>Fri, 20 Aug 2021 00:00:00 +0530</pubDate>
         <title>My thoughts on Gemini</title>
         <link>https://dhruvasambrani.github.io/newblog/./2021-08-29_185046</link>
         <description>$lt;h1 id=&quot;my-thoughts-on-gemini&quot;&gt;My thoughts on Gemini$lt;/h1&gt;
@@ -224,7 +224,7 @@ $lt;p&gt;Content is king.$lt;/p&gt;</description>
         <guid>https://dhruvasambrani.github.io/newblog/./2021-08-29_185046</guid>
       </item>
     <item>
-        <pubDate>Mon, 06 09 2021 00:00:00 +0530</pubDate>
+        <pubDate>Fri, 20 Aug 2021 00:00:00 +0530</pubDate>
         <title>My blog on Gemini</title>
         <link>https://dhruvasambrani.github.io/newblog/./2021-09-06_010053</link>
         <description>$lt;h1 id=&quot;my-blog-on-gemini&quot;&gt;My blog on Gemini$lt;/h1&gt;
@@ -326,8 +326,7 @@ class=&quot;sourceCode python&quot;&gt;$lt;code class=&quot;sourceCode python&qu
 $lt;span id=&quot;cb2-2&quot;&gt;$lt;a href=&quot;#cb2-2&quot; aria-hidden=&quot;true&quot; tabindex=&quot;-1&quot;&gt;$lt;/a&gt;$lt;span class=&quot;kw&quot;&gt;def$lt;/span&gt; listposts():$lt;/span&gt;
 $lt;span id=&quot;cb2-3&quot;&gt;$lt;a href=&quot;#cb2-3&quot; aria-hidden=&quot;true&quot; tabindex=&quot;-1&quot;&gt;$lt;/a&gt;    files $lt;span class=&quot;op&quot;&gt;=$lt;/span&gt; os.listdir($lt;span class=&quot;st&quot;&gt;&amp;quot;../public_gemini/&amp;quot;$lt;/span&gt;)$lt;/span&gt;
 $lt;span id=&quot;cb2-4&quot;&gt;$lt;a href=&quot;#cb2-4&quot; aria-hidden=&quot;true&quot; tabindex=&quot;-1&quot;&gt;$lt;/a&gt;    files.sort()$lt;/span&gt;
-$lt;span id=&quot;cb2-5&quot;&gt;$lt;a href=&quot;#cb2-5&quot; aria-hidden=&quot;true&quot; tabindex=&quot;-1&quot;&gt;$lt;/a&gt;    $lt;span class=&quot;cf&quot;&gt;return$lt;/span&gt;($lt;span class=&quot;st&quot;&gt;&amp;quot;$lt;/span&gt;$lt;span class=&quot;ch&quot;&gt;
-$lt;/span&gt;$lt;span class=&quot;st&quot;&gt;&amp;quot;$lt;/span&gt;.join([$lt;span class=&quot;st&quot;&gt;&amp;quot;=&amp;gt; &amp;quot;$lt;/span&gt;$lt;span class=&quot;op&quot;&gt;+$lt;/span&gt;_file $lt;span class=&quot;cf&quot;&gt;for$lt;/span&gt; _file $lt;span class=&quot;kw&quot;&gt;in$lt;/span&gt; files]))$lt;/span&gt;
+$lt;span id=&quot;cb2-5&quot;&gt;$lt;a href=&quot;#cb2-5&quot; aria-hidden=&quot;true&quot; tabindex=&quot;-1&quot;&gt;$lt;/a&gt;    $lt;span class=&quot;cf&quot;&gt;return$lt;/span&gt;($lt;span class=&quot;st&quot;&gt;&amp;quot;$lt;/span&gt;$lt;span class=&quot;ch&quot;&gt;\n$lt;/span&gt;$lt;span class=&quot;st&quot;&gt;&amp;quot;$lt;/span&gt;.join([$lt;span class=&quot;st&quot;&gt;&amp;quot;=&amp;gt; &amp;quot;$lt;/span&gt;$lt;span class=&quot;op&quot;&gt;+$lt;/span&gt;_file $lt;span class=&quot;cf&quot;&gt;for$lt;/span&gt; _file $lt;span class=&quot;kw&quot;&gt;in$lt;/span&gt; files]))$lt;/span&gt;
 $lt;span id=&quot;cb2-6&quot;&gt;$lt;a href=&quot;#cb2-6&quot; aria-hidden=&quot;true&quot; tabindex=&quot;-1&quot;&gt;$lt;/a&gt;$lt;span class=&quot;cf&quot;&gt;with$lt;/span&gt; $lt;span class=&quot;bu&quot;&gt;open$lt;/span&gt;($lt;span class=&quot;st&quot;&gt;&amp;quot;template.gmi&amp;quot;$lt;/span&gt;) $lt;span class=&quot;im&quot;&gt;as$lt;/span&gt; f:$lt;/span&gt;
 $lt;span id=&quot;cb2-7&quot;&gt;$lt;a href=&quot;#cb2-7&quot; aria-hidden=&quot;true&quot; tabindex=&quot;-1&quot;&gt;$lt;/a&gt;    s $lt;span class=&quot;op&quot;&gt;=$lt;/span&gt; f.read()$lt;/span&gt;
 $lt;span id=&quot;cb2-8&quot;&gt;$lt;a href=&quot;#cb2-8&quot; aria-hidden=&quot;true&quot; tabindex=&quot;-1&quot;&gt;$lt;/a&gt;    final $lt;span class=&quot;op&quot;&gt;=$lt;/span&gt; s.replace($lt;span class=&quot;st&quot;&gt;&amp;quot;$lt;/span&gt;$lt;span class=&quot;sc&quot;&gt;{{$lt;/span&gt;$lt;span class=&quot;st&quot;&gt; listposts $lt;/span&gt;$lt;span class=&quot;sc&quot;&gt;}}$lt;/span&gt;$lt;span class=&quot;st&quot;&gt;&amp;quot;$lt;/span&gt;, listposts())$lt;/span&gt;
