@@ -29,5 +29,5 @@ echo "Compressing html"
 ./minify -r -a build -o .
 
 echo "Making rss"
-source ./rss_feed > build/feed.xml
+./rss_feed > build/feed.xml
 

@@ -1,11 +1,23 @@
 #! /bin/sh
+ghpages() {
+    echo "deploying gh-pages"
+    cd build && ~/.scripts/tools/gcap && cd ..
+}
 
-echo "deploying gh-pages"
-cd build && ~/.scripts/tools/gcap && cd ..
-
-echo "deploying to ctrl-c"
-sftp dhruva@ctrl-c.club <<EOF
+ctrlc() {
+    echo "deploying to ctrl-c"
+    sftp dhruva@ctrl-c.club <<EOF
 put gemini/* public_gemini
 exit 
 EOF
+}
+
+case "$1" in
+  ghpages) ghpages
+  ;;
+  ctrlc) ctrlc
+  ;;
+  *) ghpages && ctrlc
+  ;;
+esac
 

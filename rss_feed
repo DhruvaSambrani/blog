@@ -1,12 +1,20 @@
-#!/bin/sh
+#! /bin/sh
+
 DOMAIN="https://dhruvasambrani.github.io/newblog"
 POST_DIR="."
 AUTHOR="dhruvasambrani19@gmail.com (Dhruva Sambrani)"
-TIME="00:00:00 IST"
+TIME="00:00:00 +0530"
 
-echo "<rss version=\"2.0\" xmlns:atom=\"http://www.w3.org/2005/Atom\">
+echo "<?xml version=\"1.0\" encoding=\"UTF-8\"?><rss version=\"2.0\" 
+xmlns:content=\"http://purl.org/rss/1.0/modules/content/\"
+xmlns:wfw=\"http://wellformedweb.org/CommentAPI/\"
+xmlns:dc=\"http://purl.org/dc/elements/1.1/\"
+xmlns:atom=\"http://www.w3.org/2005/Atom\"
+xmlns:sy=\"http://purl.org/rss/1.0/modules/syndication/\"
+xmlns:slash=\"http://purl.org/rss/1.0/modules/slash/\"
+>
   <channel>
-    <title>YOUR-BLOG-TITLE</title>
+    <title>Dhruva's Blog</title>
     <link>$DOMAIN</link>
     <description>Dhruva's Blog, a collectionf of thoughts, guides and random shit</description>
     <ttl>60</ttl>
@@ -15,12 +23,15 @@ echo "<rss version=\"2.0\" xmlns:atom=\"http://www.w3.org/2005/Atom\">
 for file in $POST_DIR/20*.md; do
     dt=$(echo $file | sed -E "s/\.\/(.*)_.*/\1/g")
     echo "    <item>
-        <pubDate>$(date -d "$dt" +"%d %m %Y") $TIME</pubDate>
-        <title>$(head -n 2 $file | tail -n 1 | sed -E "s/title://g")</title>
-        <link>$DOMAIN/$file</link>
-        <description>$(tail -n +4 $file)</description>
+        <pubDate>$(date -d "$dt" +"%a, %d %b %Y") $TIME</pubDate>
+        <title>$(head -n 2 $file | tail -n 1 | sed -E "s/title: //g; s/\\\"//g")</title>
+        <link>$DOMAIN/$(echo $file | sed "s/\.md//g")</link>
+        <description>$(head -n 3 $file | tail -n 1 | sed -E "s/desc: //g; s/\\\"//g")</description>
+        <content:encoded><![CDATA[
+$(pandoc $file -t html --wrap=none)
+        ]]></content:encoded>
         <author>$AUTHOR</author>
-        <guid>$DOMAIN/$file</guid>
+        <guid>$DOMAIN/$(echo $file | sed "s/\.md//g")</guid>
       </item>";
 done
 
