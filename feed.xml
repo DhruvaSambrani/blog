@@ -1,4 +1,11 @@
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0" 
+xmlns:content="http://purl.org/rss/1.0/modules/content/"
+xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+xmlns:dc="http://purl.org/dc/elements/1.1/"
+xmlns:atom="http://www.w3.org/2005/Atom"
+xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+>
   <channel>
     <title>Dhruva's Blog</title>
     <link>https://dhruvasambrani.github.io/newblog</link>
@@ -35,7 +42,7 @@
 <p>Success!</p>
 <h2 id="still-not-the-best">Still not the best</h2>
 <p>This set up is still not perfect. I cannot make changes on my calendar app which propagate to the laptop. I have to fall back to the calcurse CLI or TUI to add an event via termux. It’s not a dealbreaker, especially since I don’t have too many updates anyway, but a person can dream.</p>
-]]></content:encoded>
+        ]]></content:encoded>
         <author>dhruvasambrani19@gmail.com (Dhruva Sambrani)</author>
         <guid>https://dhruvasambrani.github.io/newblog/./2021-08-20_010631</guid>
       </item>
@@ -54,7 +61,7 @@
 <p>Three people die as they ran into a speeding truck. The bus driver held for homicide. Hearing on…</p>
 </blockquote>
 <p>Life was convenient</p>
-]]></content:encoded>
+        ]]></content:encoded>
         <author>dhruvasambrani19@gmail.com (Dhruva Sambrani)</author>
         <guid>https://dhruvasambrani.github.io/newblog/./2021-08-20_010715</guid>
       </item>
@@ -82,7 +89,7 @@
 <p>The Gemini protocol can be extensively minimalist, with people debating on whether favicons in the form of emojis should be implemented or not. While every site looking the same could be extremely useful, as my friend put it, is r/aBoringUtopia. It prevents web developers from expressing themselves via design. Sure, Unicode art can provide some relief, but it is still lacking. I would have preferred at least “pure” markdown level formatting. But a valid response to this can be found on the <a href="https://gemini.circumlunar.space/">Project Gemini website</a> - &gt; Gemini will not replace the web</p>
 <p>I don’t want an image sharing website on Gemini, though it could very well be implemented by calling external applications. I don’t want a banking solution on Gemini, because I would prefer a more secure implementation(but open, one can dream) on the web. But I sure as hell don’t want to see 5 transitions, autoscrolling, 3 sign up boxes, 4 newsletter boxes, 15 cookie policies, 10 TnCs and a million ads just so that I can be depressed by a news article highlighting the effects of global warming. Give me just content.</p>
 <p>Content is king.</p>
-]]></content:encoded>
+        ]]></content:encoded>
         <author>dhruvasambrani19@gmail.com (Dhruva Sambrani)</author>
         <guid>https://dhruvasambrani.github.io/newblog/./2021-08-29_185046</guid>
       </item>
@@ -151,7 +158,7 @@
 <li>HTML → Gemini isn’t the best, because scripts attempt to retain content while ignoring formatting, where in some places, it may be better to just leave the content on the whole.</li>
 </ol>
 <p>But on the whole, I’m pleased with the present output.</p>
-]]></content:encoded>
+        ]]></content:encoded>
         <author>dhruvasambrani19@gmail.com (Dhruva Sambrani)</author>
         <guid>https://dhruvasambrani.github.io/newblog/./2021-09-06_010053</guid>
       </item>
