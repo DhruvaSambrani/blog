@@ -163,9 +163,9 @@ xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
         <guid>https://dhruvasambrani.github.io/newblog/./2021-09-06_010053</guid>
       </item>
     <item>
-        <pubDate> 00:00:00 +0530</pubDate>
+        <pubDate>Fri, 29 Apr 2022 00:00:00 +0530</pubDate>
         <title>Science articles everyday</title>
-        <link>https://dhruvasambrani.github.io/newblog/./2022-24-29_140425</link>
+        <link>https://dhruvasambrani.github.io/newblog/./2022-04-29_150432</link>
         <description>How I consume Science on a daily basis, why you should too, and fangirling about RSS</description>
         <content:encoded><![CDATA[
 <h1 id="science-articles-everyday">Science Articles Everyday</h1>
@@ -183,7 +183,7 @@ xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
 <p>None, apart from when the pressure to read the articles. Most of the articles, I just read the title and decide to read it completely if I like it.</p>
         ]]></content:encoded>
         <author>dhruvasambrani19@gmail.com (Dhruva Sambrani)</author>
-        <guid>https://dhruvasambrani.github.io/newblog/./2022-24-29_140425</guid>
+        <guid>https://dhruvasambrani.github.io/newblog/./2022-04-29_150432</guid>
       </item>
   </channel>
 </rss>
