@@ -1,0 +1,6 @@
+#! /bin/bash
+
+title=$(grep title\: $1 | head -n1 | sed -E "s/title\: //g;s/\"//g")
+htmlname=$(echo $1 | sed "s/\.md/\.html/g")
+echo "- [$title]($htmlname)"
+

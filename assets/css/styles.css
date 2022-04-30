@@ -33,7 +33,7 @@ a {
 .markdown-body p {
     line-height: 1.5em;
     margin-bottom: 1.2em;
-    text-indent: 2em;
+    text-indent: 1em;
 }
 .markdown-body h1,h2,h3,h4,h5 {
     color: #b2e961;
@@ -90,12 +90,6 @@ footer a {
     border: 0px solid white;
     border-radius: 4px;
 }
-footer p {
-    color: white;
-    font-size: 1.1rem;
-    margin: 0px;
-    padding: 8px 20px;
-}
 
 /* Footer content small screen fix */
 
@@ -111,9 +105,6 @@ footer #contents::before {
 footer #contents::after {
     content: " Page";
 }
-footer #last::before {
-    content: "Last Edited: ";
-}
 @media (max-width: 75em) {
     footer #home::before {
         content: "";
@@ -125,9 +116,6 @@ footer #last::before {
         content: "";
     }
     footer #contents::after {
-        content: "";
-    }
-    footer #last::before {
         content: "";
     }
 }

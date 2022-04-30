@@ -10,9 +10,7 @@
     <meta name="keywords" content="$for(keywords)$$keywords$$sep$, $endfor$" />
     $endif$
     <title>$title$ | Dhruva's Blog</title>
-    <style>
-        $styles.html()$
-    </style>
+    <link rel="stylesheet" href="$pageroot$/assets/css/pandoc-styles.css">
     <link rel="stylesheet" href="$pageroot$/assets/css/styles.css">
     $for(css)$
     <link rel="stylesheet" href="$css$" />
@@ -31,7 +29,8 @@
     </div>
     <footer>
         <a id="home" href="$pageroot$/">Home</a>
-        <p>Last Edited: Some time ago</p>
+        <img alt="Creative Commons License" style="border-width:0"
+            src="https://i.creativecommons.org/l/by-nc/4.0/88x31.png" />
         <a id="contents" href="$pageroot$/contents.html">Contents</a>
     </footer>
 </body>
