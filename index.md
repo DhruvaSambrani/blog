@@ -16,3 +16,11 @@ This is a place where I put down my opinions, musings, guides and code. I study 
 
 Well, hope you enjoy reading my blog, whether you agree with me or not! Please do reach out via the links on the bottom!
 
+## Contact and Links
+
+1. [Mastodon](https://fosstodon.org/@dhruvasambrani)
+2. [Website/CV](https://dhruvasambrani.github.io)
+3. Gemini - [gemini://gemini.ctrl-c.club/~dhruva](gemini://gemini.ctrl-c.club/~dhruva)
+4. Email - See [Website CV](https://dhruvasambrani.github.io)
+5. RSS Feed Link - [https://dhruvasambrani.github.io/newblog/feed.xml](https://dhruvasambrani.github.io/newblog/feed.xml)
+
