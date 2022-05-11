@@ -23,4 +23,3 @@ Well, hope you enjoy reading my blog, whether you agree with me or not! Please d
 3. Gemini - [gemini://gemini.ctrl-c.club/~dhruva](gemini://gemini.ctrl-c.club/~dhruva)
 4. Email - See [Website CV](https://dhruvasambrani.github.io)
 5. RSS Feed Link - [https://dhruvasambrani.github.io/newblog/feed.xml](https://dhruvasambrani.github.io/newblog/feed.xml)
-
