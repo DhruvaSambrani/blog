@@ -10,10 +10,12 @@ mkdir gemini
 cp -r assets build
 cp assets/images/favicon.ico build
 
+
 echo "making html toc"
-find . -maxdepth 1 -name "20*" | sort | xargs -I{} make_html_index {} | pandoc -t html5 --template=templates/contents.html -V "pageroot=$pageroot" -s -o build/contents.html --wrap=preserve
+zk list -s created- -qf oneline -x index.md -f json | jq "\"- \"+.[].link" -r | pandoc -t html5 --template=templates/contents.html -V "pageroot=$pageroot" -s -o build/contents.html --wrap=preserve
+
 echo "making gemini toc"
-find . -maxdepth 1 -name "20*" | sort | xargs -I{} make_gemini_index {} | pandoc -t plain --template=templates/gemini_contents.gmi --lua-filter=filters/gemini.lua -o gemini/contents.gmi -s --wrap=preserve
+zk list -s created- -qf oneline -x index.md -f json | jq "\"- \"+.[].link" -r | pandoc -t plain --template=templates/gemini_contents.gmi --lua-filter=filters/gemini.lua -o gemini/contents.gmi -s --wrap=preserve
 
 echo "making html posts"
 find . -maxdepth 1 -name "20*" | sed "s/\.md//g;s/\.\///g" | xargs -I{} pandoc {}.md -f markdown -t html5 --template=templates/post.html -V "pageroot=$pageroot" -s --highlight-style=breezedark -o build/{}.html --wrap=preserve

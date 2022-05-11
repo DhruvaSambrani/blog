@@ -1,6 +1,0 @@
-#! /bin/bash
-
-gminame=$(echo $1 | sed "s/.md/.gmi/g")
-title=$(grep title\: $1 | head -n1 | sed -E "s/title\: //g;s/\"//g")
-echo "=> $gminame $title"
-
