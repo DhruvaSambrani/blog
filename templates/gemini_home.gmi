@@ -6,3 +6,7 @@
 
 $body$
 
+# Navigation
+
+=> contents.gmi Contents Page
+=> tags.gmi Tags Page

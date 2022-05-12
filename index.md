@@ -18,8 +18,10 @@ Well, hope you enjoy reading my blog, whether you agree with me or not! Please d
 
 ## Contact and Links
 
-1. [Mastodon](https://fosstodon.org/@dhruvasambrani)
-2. [Website/CV](https://dhruvasambrani.github.io)
-3. Gemini - [gemini://gemini.ctrl-c.club/~dhruva](gemini://gemini.ctrl-c.club/~dhruva)
-4. Email - See [Website CV](https://dhruvasambrani.github.io)
-5. RSS Feed Link - [https://dhruvasambrani.github.io/newblog/feed.xml](https://dhruvasambrani.github.io/newblog/feed.xml)
+[Gemini](gemini://gemini.ctrl-c.club/~dhruva)\
+[Mastodon - Tech](https://fosstodon.org/@dhruvasambrani)\
+[Mastodon - Academic](https://scholar.social/@dhruvasambrani)\
+[Website/CV](https://dhruvasambrani.github.io)\
+Email - See [Website CV](https://dhruvasambrani.github.io)\
+[RSS](https://dhruvasambrani.github.io/newblog/feed.xml)\
+

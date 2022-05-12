@@ -23,7 +23,7 @@ function inner_text(el)
 end
 
 function make_gmi(link)
-    if (link:find("%.%/.*") or not (link:find("http(s)+%:%/%/") or link:find("gemini%:%/%/"))) then
+    if (link:find("%.%/.*") or not (link:find("https%:%/%/") or link:find("gemini%:%/%/"))) then
         return link .. ".gmi"
     end
     return link:gsub(".html", ".gmi")
