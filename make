@@ -24,7 +24,7 @@ if [[ $PAGES == "1" ]]; then
     echo "Making html home"
     pandoc index.md -o build/index.html -t html5 --template=templates/home.html -s -V "pageroot=$pageroot" --wrap=preserve
     echo "Making html tag-list"
-    ./maketag_html | pandoc -o build/tags.html -t html5 --template=templates/tags.html --wrap=preserve
+    ./maketag_html | pandoc -t html5 --template=templates/tags.html -V "pageroot=$pageroot" -s -o build/tags.html --wrap=preserve
     echo "Compressing html"
     ./minify -r -a build -o .
     echo "======="
