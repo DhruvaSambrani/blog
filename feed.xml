@@ -196,7 +196,7 @@ xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
         <content:encoded><![CDATA[
 <h1 id="my-todo-manager">My Todo Manager</h1>
 <h1 id="calcurse">Calcurse</h1>
-<p>In my previous post about <a href="./2021-08-20_010631.html">my Calender Setup</a>, I mentioned about how I was using Calcurse as my calender. Now calcurse also has a Todo section which works great, except that I have to open calcurse to use it. I just want to quickly see what I need to do, press enter to say I am done with it and it should be gone. Adding an entry should be just as easy</p>
+<p>In my previous post about <a href="./2021-08-20_010631">my Calender Setup</a>, I mentioned about how I was using Calcurse as my calender. Now calcurse also has a Todo section which works great, except that I have to open calcurse to use it. I just want to quickly see what I need to do, press enter to say I am done with it and it should be gone. Adding an entry should be just as easy</p>
 <h1 id="enter-dmenu">Enter dmenu</h1>
 <p><code>dmenu</code> is a suckless menu selector which has fuzzy search (patch), default text (patch) and autocomplete. This is everything I need. So I made a script to use dmenu as my So I simply read the calcurse todo file and display a menu with each entry in the todo as a dmenu entry.</p>
 <p>When user inputs, I check if it matches any previous entry. If it does, then I remove the entry from the todo file.</p>
