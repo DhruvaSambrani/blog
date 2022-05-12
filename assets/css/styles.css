@@ -65,6 +65,30 @@ a {
     white-space:pre-line !important;
 }
 
+/*Tags*/
+
+.tags > :first-child{
+    color: unset;
+    border: unset;
+    text-align: unset;
+    font-size: unset;
+    margin-bottom: unset;
+}
+
+.tags {
+    margin-top: 10px;
+    text-align: center;
+}
+
+.tags a{
+    color: #b2e961 !important;
+    text-shadow:
+        /* White glow */
+        0 0 21px #b2e961,
+        /* Green glow */
+        0 0 82px #888,
+        0 0 92px #000;
+}
 
 /* Footer theme */
 footer {

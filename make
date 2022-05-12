@@ -1,22 +1,27 @@
 #! /bin/sh
 
+[[ -z $2 ]] && pageroot="/newblog"
+
 case "$1" in
-    gemini) GEMINI="1"
+    gemini) GEMINI="1" && ASSETS="1"
     ;;
     ghpages) PAGES="1"
     ;;
-    *) GEMINI="1" && PAGES="1"
+    assets) ASSETS="1"
+    ;;
+    *) GEMINI="1" && PAGES="1" && ASSETS="1"
     ;;
 esac
 
-pageroot="/newblog"
-
 echo "======="
 
-if [[ $PAGES == "1" ]]; then
+if [[ $ASSETS == "1" ]]; then
     echo "making build dirs and linking assets"
     cp -r assets build
     cp assets/images/favicon.ico build
+fi
+
+if [[ $PAGES == "1" ]]; then
     echo "Making html toc"
     zk list -s created- -qf oneline -x index.md -f json | jq "\"- \"+.[].link" -r | pandoc -t html5 --template=templates/contents.html -V "pageroot=$pageroot" -s -o build/contents.html --wrap=preserve
     echo "Making html posts"

@@ -28,8 +28,8 @@
         $body$
     </div>
     $if(tags)$
-    <div class="tags">
-        $for(tags)$<a href="$pageroot$/tags.html#$tags$">$tags$<a>, $endfor$
+    <div class="markdown-body tags">
+        $for(tags)$<a href="$pageroot$/tags.html#$tags$">#$tags$<a>$sep$, $endfor$
     </div>
     $endif$
     <footer>
