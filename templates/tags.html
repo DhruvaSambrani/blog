@@ -7,9 +7,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
     <meta name="author" content="Dhruva Sambrani" />
     $if(tags)$
-    <meta name="keywords" content="$for(tags)$$tags$$sep$, $endfor$" />
+    <meta name="tags" content="$for(tags)$$tags$$sep$, $endfor$" />
     $endif$
-    <title>$title$ | Dhruva's Blog</title>
+    <title>Entropic Mess | Dhruva's Blog</title>
     <link rel="stylesheet" href="$pageroot$/assets/css/pandoc-styles.css">
     <link rel="stylesheet" href="$pageroot$/assets/css/styles.css">
     $for(css)$
@@ -27,11 +27,6 @@
     <div class="markdown-body">
         $body$
     </div>
-    $if(tags)$
-    <div class="tags">
-        $for(tags)$<a href="$pageroot$/tags.html#$tags$">$tags$<a>, $endfor$
-    </div>
-    $endif$
     <footer>
         <a id="home" href="$pageroot$/">Home</a>
         <img alt="Creative Commons License" style="border-width:0"

@@ -1,0 +1,12 @@
+#! /bin/bash
+
+echo "# Tags"
+zk tag -qf name -s note-count | 
+while IFS= read -r line;
+do
+    echo "### #$line"
+    zk list -qf json --tag $line --sort created- | jq "map(.link)[]" -r
+    echo ""
+done
+
+

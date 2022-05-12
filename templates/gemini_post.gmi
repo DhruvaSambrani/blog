@@ -1,8 +1,8 @@
 $body$
 
+=> tags.gmi $tags$ 
 
 # Links
 => /~dhruva Home
 => contents.gmi Other Posts
-
 

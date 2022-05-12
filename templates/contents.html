@@ -1,15 +1,23 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="$lang$" xml:lang="$lang$" $if(dir)$ dir="$dir$" $endif$>
 
 <head>
-    <title>Entropic Mess|Dhruva's Blog</title>
     <meta charset="utf-8" />
     <meta name="generator" content="pandoc" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-    <link href="$pageroot$/assets/css/styles.css" rel="stylesheet">
+    <meta name="author" content="Dhruva Sambrani" />
+    $if(tags)$
+    <meta name="tags" content="$for(tags)$$tags$$sep$, $endfor$" />
+    $endif$
+    <title>Entropic Mess | Dhruva's Blog</title>
+    <link rel="stylesheet" href="$pageroot$/assets/css/pandoc-styles.css">
+    <link rel="stylesheet" href="$pageroot$/assets/css/styles.css">
     $for(css)$
     <link rel="stylesheet" href="$css$" />
     $endfor$
+    <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
     $for(header-includes)$
     $header-includes$
     $endfor$
@@ -20,6 +28,12 @@
         <h1>All my posts</h1>
         $body$
     </div>
+    <footer>
+        <a id="home" href="$pageroot$/">Home</a>
+        <img alt="Creative Commons License" style="border-width:0"
+            src="https://i.creativecommons.org/l/by-nc/4.0/88x31.png" />
+        <a id="contents" href="$pageroot$/tags.html">Tags</a>
+    </footer>
 </body>
 
 </html>

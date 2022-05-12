@@ -6,4 +6,3 @@
 
 $body$
 
-=> contents.gmi Posts
