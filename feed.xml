@@ -103,7 +103,7 @@ xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
         <description>My weird setup to get my blog on Gemini</description>
         <content:encoded><![CDATA[
 <h1 id="my-blog-on-gemini">My blog on Gemini</h1>
-<p>My <a href="../2021-08-29_185046">previous post</a> was a brief intro and what I feel about the Gemini protocol. All said and done, I thought that it wouldn’t hurt to “expand” my blog to the Gemini space too. This blog is about what I had to do to get my blog to the Gemini space. The blog is at <a href="gemini://gemini.ctrl-c.club/~dhruva">gemini://gemini.ctrl-c.club/~dhruva</a></p>
+<p>My <a href="./2021-08-29_185046">previous post</a> was a brief intro and what I feel about the Gemini protocol. All said and done, I thought that it wouldn’t hurt to “expand” my blog to the Gemini space too. This blog is about what I had to do to get my blog to the Gemini space. The blog is at <a href="gemini://gemini.ctrl-c.club/~dhruva">gemini://gemini.ctrl-c.club/~dhruva</a></p>
 <p>Tl;dr — LOL no, read the whole thing.</p>
 <h2 id="server-and-hosting">Server and Hosting</h2>
 <p>The first thing I needed was a server to host my Gemini capsule. For my HTTP site, I use GitHub pages, which is super easy to set up because I don’t need to manage my own server. But is there something similar for Gemini?</p>
