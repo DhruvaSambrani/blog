@@ -23,18 +23,19 @@ fi
 
 if [[ $PAGES == "1" ]]; then
     echo "Making html toc"
-    zk list -s created- -qf oneline -x index.md -f json | jq "\"- \"+.[].link" -r | pandoc -t html5 --template=templates/contents.html -V "pageroot=$pageroot" -s -o build/contents.html --wrap=preserve
+    zk list -s created- -qf oneline -x index.md -f json | jq "\"- \"+.[].link" -r | pandoc -t html5 --template=templates/contents.html -V "pageroot=$pageroot" -s -o build/contents.html --wrap=preserve 2> /dev/null
     echo "Making html posts"
-    find . -maxdepth 1 -name "20*" | sed "s/\.md//g;s/\.\///g" | xargs -I{} pandoc {}.md -f markdown -t html5 --template=templates/post.html -V "pageroot=$pageroot" -s --highlight-style=breezedark -o build/{}.html --wrap=preserve
+    find . -maxdepth 1 -name "20*" | sed "s/\.md//g;s/\.\///g" | xargs -I{} pandoc {}.md -f markdown -t html5 --template=templates/post.html -V "pageroot=$pageroot" -s --highlight-style=breezedark -o build/{}.html --wrap=preserve 2> /dev/null
     echo "Making html home"
-    pandoc index.md -o build/index.html -t html5 --template=templates/home.html -s -V "pageroot=$pageroot" --wrap=preserve
+    pandoc index.md -o build/index.html -t html5 --template=templates/home.html -s -V "pageroot=$pageroot" --wrap=preserve 2> /dev/null
     echo "Making html tag-list"
-    ./maketag_html | pandoc -t html5 --template=templates/tags.html -V "pageroot=$pageroot" -s -o build/tags.html --wrap=preserve
-    echo "Compressing html"
-    ./minify -r -a build -o .
+    ./maketag_html | pandoc -t html5 --template=templates/tags.html -V "pageroot=$pageroot" -s -o build/tags.html --wrap=preserve 2> /dev/null
     echo "======="
     echo "Making rss"
     ./rss_feed > build/feed.xml
+    echo "======="
+    echo "Compressing html"
+    ./minify -r -a build -o .
     echo "======="
 fi
 if [[ $GEMINI == "1" ]]; then
