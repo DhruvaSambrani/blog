@@ -1,6 +1,6 @@
 $body$
 
-=> tags.gmi $tags$ 
+=> tags.gmi $for(tags)$$tags$$sep$,$endfor$
 
 # Links
 => /~dhruva Home
