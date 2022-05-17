@@ -1,6 +1,6 @@
 #! /bin/sh
 
-DOMAIN="https://dhruvasambrani.github.io/newblog"
+DOMAIN="https://dhruvasambrani.github.io/blog"
 POST_DIR="."
 AUTHOR="dhruvasambrani19@gmail.com (Dhruva Sambrani)"
 TIME="00:00:00 +0530"

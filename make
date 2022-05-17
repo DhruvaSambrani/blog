@@ -1,6 +1,6 @@
 #! /bin/sh
 
-[[ -z $2 ]] && pageroot="/newblog"
+[[ -z $2 ]] && pageroot="/blog"
 
 case "$1" in
     gemini) GEMINI="1" && ASSETS="1"
