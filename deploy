@@ -7,7 +7,7 @@ ghpages() {
 ctrlc() {
     echo "deploying to ctrl-c"
     sftp dhruva@ctrl-c.club <<EOF
-put gemini/* public_gemini
+put -R gemini gemini
 exit 
 EOF
 }

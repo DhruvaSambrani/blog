@@ -20,7 +20,7 @@ Well, hope you enjoy reading my blog, whether you agree with me or not! Please d
 
 [Gemini](gemini://gemini.ctrl-c.club/~dhruva)\
 [Mastodon - Tech](https://fosstodon.org/@dhruvasambrani)\
-[Mastodon - Academic](https://scholar.social/@dhruvasambrani)\
+[Mastodon - Academic](https://qubit-social.xyz/@dhruvasambrani)\
 [Website/CV](https://dhruvasambrani.github.io)\
 Email - See [Website CV](https://dhruvasambrani.github.io)\
 [RSS](https://dhruvasambrani.github.io/blog/feed.xml)\
