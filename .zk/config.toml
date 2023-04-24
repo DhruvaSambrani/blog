@@ -15,7 +15,7 @@ language = "en"
 default-title = "Title"
 
 # Template used to generate a note's filename, without extension.
-filename = "{{date now '%Y-%m-%d_%H%M%S'}}"
+filename = "{{format-date now '%Y-%m-%d_%H%M%S'}}"
 
 # The file extension used for the notes.
 #extension = "md"
