@@ -28,7 +28,7 @@ for file in $POST_DIR/20*.md; do
         <link>$DOMAIN/$(echo $file | sed "s/\.md//g")</link>
         <description>$(head -n 3 $file | tail -n 1 | sed -E "s/desc: //g; s/\\\"//g")</description>
         <content:encoded><![CDATA[
-$(pandoc $file -t html --wrap=none | minify --type html)
+$(pandoc $file -t html --wrap=none | ./minify --type html)
         ]]></content:encoded>
         <author>$AUTHOR</author>
         <guid>$DOMAIN/$(echo $file | sed "s/\.md//g")</guid>
