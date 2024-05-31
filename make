@@ -1,6 +1,12 @@
 #! /bin/sh
 
-[[ -z $2 ]] && pageroot="/blog"
+if [[ -z $2 ]]; then
+	pageroot="/blog"
+else
+	pageroot=$2
+fi
+
+echo "pageroot= $pageroot"
 
 case "$1" in
     gemini) GEMINI="1" && ASSETS="1"
