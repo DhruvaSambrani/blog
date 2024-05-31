@@ -1,13 +1,13 @@
 #! /bin/sh
 ghpages() {
     echo "deploying gh-pages"
-    ./make
+    ./make all /blog
     gcap 
 }
 
 ctrlc() {
     echo "deploying to ctrl-c"
-    ./make all ~dhruva
+    ./make all /~dhruva
     sftp dhruva@ctrl-c.club <<EOF
 put -R gemini
 put -R build html

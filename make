@@ -1,23 +1,18 @@
 #! /bin/sh
 
-if [[ -z $2 ]]; then
-	pageroot="/blog"
-else
-	pageroot=$2
-fi
-
-echo "pageroot= $pageroot"
-
 case "$1" in
     gemini) GEMINI="1" && ASSETS="1"
     ;;
-    ghpages) PAGES="1"
+    html) PAGES="1" && ASSETS="1"
     ;;
-    assets) ASSETS="1"
+    onlyassets) ASSETS="1"
     ;;
     *) GEMINI="1" && PAGES="1" && ASSETS="1"
     ;;
 esac
+
+pageroot=$2
+echo "pageroot= $pageroot"
 
 echo "======="
 
