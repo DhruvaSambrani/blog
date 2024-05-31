@@ -30,7 +30,7 @@ if [[ $PAGES == "1" ]]; then
     echo "Making html home"
     pandoc index.md -o build/index.html -t html5 --template=templates/home.html -s -V "pageroot=$pageroot" --wrap=preserve 2> /dev/null
     echo "Making html tag-list"
-    ./maketag_html | pandoc -t html5 --template=templates/tags.html -V "pageroot=$pageroot" -s -o build/tags.html --wrap=preserve 2> /dev/null
+    ./maketag_html | pandoc -t html5 --template=templates/tags.html -V "pageroot=$pageroot" -s -o build/tags.html --wrap=preserve --highlight-style pygments 2> /dev/null
     echo "======="
     echo "Making rss"
     ./rss_feed > build/feed.xml
