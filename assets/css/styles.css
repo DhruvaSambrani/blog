@@ -56,13 +56,13 @@ a {
 
 .markdown-body pre {
     overflow-x: scroll;
+    padding: 10px !important;
 }
 .markdown-body pre span {
     white-space: pre !important;
 }
 .markdown-body pre code {
-    white-space:pre-line !important;
-    padding: 10px;
+    white-space:pre !important;
 }
 
 /*Tags*/
