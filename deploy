@@ -10,7 +10,7 @@ ctrlc() {
     ./make all /~dhruva
     sftp dhruva@ctrl-c.club <<EOF
 put -R gemini
-put -R build html
+put -R build
 exit 
 EOF
 }
