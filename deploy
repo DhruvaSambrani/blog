@@ -17,7 +17,7 @@ case "$1" in
   ;;
   ctrlc) ctrlc
   ;;
-  *) ghpages && ctrlc
+  *) ctrlc && ghpages
   ;;
 esac
 
