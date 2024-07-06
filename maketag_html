@@ -5,7 +5,7 @@ zk tag -qf name -s note-count |
 while IFS= read -r line;
 do
     echo "### #$line"
-    zk list -qf json --tag $line --sort created- | jq "map(\"- \"+.link)[]" -r
+    zk list -qf json --tag $line --sort created- | jq "map(\"- \"+.link)[]" -r | sed "s|(|($pageroot/|g;s|)|.html)|g"
     echo ""
 done
 

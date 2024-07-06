@@ -24,7 +24,7 @@ fi
 
 if [[ $PAGES == "1" ]]; then
     echo "Making html toc"
-    zk list -s created- -q -x index.md -f json | jq "\"- \"+.[].link" -r | pandoc -t html5 --template=templates/contents.html -V "pageroot=$pageroot" -s -o build/contents.html --wrap=preserve 2> /dev/null
+    zk list -s created- -q -x index.md -f json | jq "\"- \"+.[].link" -r | sed "s|(|($pageroot/|g;s|)|.html)|g" | pandoc -t html5 --template=templates/contents.html -V "pageroot=$pageroot" -s -o build/contents.html --wrap=preserve 2> /dev/null
     echo "Making html posts"
     find . -maxdepth 1 -name "20*" | sed "s/\.md//g;s/\.\///g" | xargs -I{} pandoc {}.md -f markdown -t html5 --template=templates/post.html -V "pageroot=$pageroot" -s -o build/{}.html --wrap=preserve 2> /dev/null
     echo "Making html home"
