@@ -8,8 +8,8 @@ ghpages() {
 ctrlc() {
     echo "deploying to ctrl-c"
     ./make all /~dhruva
-    rsync -ave ssh gemini ctrl-c.club:gemini
-    rsync -ave ssh build ctrl-c.club:build
+    rsync --delete -ave ssh gemini/* ctrl-c.club:gemini
+    rsync --delete -ave ssh build/* ctrl-c.club:build
 }
 
 case "$1" in
