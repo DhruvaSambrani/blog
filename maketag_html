@@ -4,9 +4,11 @@ echo "# Tags"
 zk tag -qf name -s note-count | 
 while IFS= read -r line;
 do
-    echo "### #$line"
-    zk list -qf json --tag $line --sort created- | jq "map(\"- \"+.link)[]" -r | sed "s|(|($1/|g;s|)|.html)|g"
-    echo ""
+    if [[ $line != *, ]]; then
+        echo "### #$line"
+        zk list -qf json --tag $line --sort created- | jq "map(\"- \"+.link)[]" -r | sed "s|(|($1/|g;s|)|.html)|g"
+        echo ""
+    fi
 done
 
 
