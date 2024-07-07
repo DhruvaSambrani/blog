@@ -78,6 +78,7 @@ a {
 .tags {
     margin-top: 10px;
     text-align: center;
+    flex-grow: 0;
 }
 
 .tags a{
