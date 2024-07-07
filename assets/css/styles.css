@@ -105,14 +105,22 @@ footer {
     margin-left: auto;
     margin-right: auto;
     margin-top: 10px;
+    align-items: center;
 }
-footer a {
+footer .footer-button {
     background-color: #04293a;
     font-size: 1.1rem;
     margin: 0px;
     padding: 8px 20px;
     border: 0px solid white;
     border-radius: 4px;
+    text-decoration: none;
+}
+footer #fivetwelve {
+    content: url("https://512kb.club/assets/images/green-team.svg");
+}
+footer #fivetwelvea {
+    display: flex;
 }
 
 /* Footer content small screen fix */
@@ -129,7 +137,12 @@ footer #contents::before {
 footer #contents::after {
     content: " Page";
 }
-@media (max-width: 75em) {
+@media (max-width: 55em) {
+    footer #fivetwelve {
+        content: url("https://512kb.club/assets/images/green-team.gif");
+    }
+}
+@media (max-width: 45em) {
     footer #home::before {
         content: "";
     }
@@ -141,5 +154,8 @@ footer #contents::after {
     }
     footer #contents::after {
         content: "";
+    }
+    footer .footer-button {
+        font-size: 0.7rem;
     }
 }
