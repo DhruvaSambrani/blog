@@ -1,0 +1,84 @@
+<!doctype html><html xmlns=http://www.w3.org/1999/xhtml lang xml:lang><meta charset=utf-8><meta name=generator content="pandoc"><meta name=viewport content="width=device-width,initial-scale=1,user-scalable=yes"><meta name=author content="Dhruva Sambrani"><meta name=keywords content="self-hosting"><title>Self Hosting without a public IP address or domain | Dhruva's Blog</title><link rel=stylesheet href=/blog/assets/css/pandoc-styles.css><link rel=stylesheet href=/blog/assets/css/styles.css><div class=markdown-body><h1 id=self-hosting-without-a-public-ip-address-or-domain>Self Hosting without a public IP address or domain</h1><p>Probably the hardest part about self hosting is reaching your server. If you use a paid hosting/VPS like Dropocean or the myriad others, this is pretty easy, but if you want to go for a 0 cost hosting like me, then this guide is for you.<h1 id=hardware-and-apps>Hardware and Apps</h1><p>You will need a device with an internet connection. I used a netbook from 2010 with great success until my mom upgraded her laptop, allowing me to upgrade my server to her old laptop. The old device ran Arch on 4GB single channel ram, so you really don’t need any fancy hardware.<p>The first thing you want to set up is an ssh server on your server device. See <a href=https://wiki.archlinux.org/title/OpenSSH#Server_usage>the archwiki page</a> for a quickstart.<p>You will probably install the selfhosted software itself via docker, or on baremetal. I would suggest docker for more complicated software, and baremetal if its a single run binary.<p>As for the main reverse proxy, I would suggest Caddy as it is the lightest and also automatically configures the TLS for the tailscale domains, but for some software, you might not get a config file for caddy in the docs. But playing around a little, you can easily adapt the NGINX or Apache configs pretty easily. See <a href=https://caddyserver.com/docs/getting-started>here</a> for a simple run through. I would suggest to run caddy on baremetal.<p>Having these, a TL;DR of the post is to install Tailscale on all devices, install pihole and unbound (optional), set pihole as the DNS resolver with Tailscale’s MagicDNS, then add a <code>deny</code> rule in pihole to respond to <code>yourname.com</code> with <code>tailscale-ip-of-server</code>.<h1 id=connecting-to-your-device>Connecting to your device</h1><p>Now to the main part of this blog. How to connect to this device from outside a LAN network. There are two options:<ol type=1><li>Pay your ISP for a public/static IP, and also pay for a domain for the TLS part. This is the usual way of doing things. The exact cost of this will depend on the domain and your ISP.<li>Use a service that provides a VPN, like Tailscale. Note however that this only allows access from devices on your tailnet.</ol><p>We will explore the set up with Tailscale. First set up your tailscale by following the 6 steps on <a href=https://tailscale.com/kb/1017/install>Tailscale quickstart</a>. Then, <a href=https://tailscale.com/kb/1081/magicdns>activate MagicDNS</a> if not already active. From now on, we will assume that <code>server</code> is the tailnet name of your server, and <code>client</code> is some client. To verify a complete setup, try to ssh into <code>server</code> from <code>client</code> with both of them on different networks. Troubleshoot connectivity with <code>tailscale ping server</code> from <code>client</code>, and also check if firewall rules on <code>server</code> allow access. Note that for testing you can turn off the firewall since only devices on your tailnet can access your device anyway.<h1 id=set-up-caddy>Set up caddy</h1><p>Once you have verified that the server is accessible, try to <a href=https://caddyserver.com/docs/quick-starts/static-files>run a file server with caddy</a>, <a href=https://caddyserver.com/docs/caddyfile/options#auto-https>turn off auto_https</a> and access the fileserver at <code>http://server.your-tailnet-name.ts.net</code> from a browser on <code>client</code>. Once again, troubleshoot by checking that server is accessible to ping, firewall rules are correct. Once this works, <a href=https://tailscale.com/kb/1190/caddy-certificates#provide-non-root-users-with-access-to-fetch-certificate>set up tailscale</a> to allow caddy to fetch the certs, <a href=https://caddyserver.com/docs/caddyfile/options#auto-https>turn on auto_https</a>, and try to access the file server at <code>https://server.your-tailnet-name.ts.net</code>.<p>At this point, you can use some self hosted software hosted at different sub directories, for e.g. <a href=#>https://server.your-tailnet-name.ts.net/service</a>. Almost all the apps will require some setup to allow access from a non-root base directory, and not all the apps support this. For example, I self host an instance of Gitea on <code>/git</code>. This requires the following set up:<ol type=1><li>Tell <code>gitea</code> that it is <a href=https://docs.gitea.com/next/administration/reverse-proxies#use-a-sub-path>hosted on a sub-path</a><li>Reverse proxy all queries on <code>/git/*</code> to the correct port<li>redirect <code>/git</code> to <code>/git/</code></ol><p>2 and 3 are configd in caddy’s config as<pre class=caddyfile><code>server.your-tailnet-name.ts.net {
+    handle_path /git/* {
+        reverse_proxy localhost:3000
+    }
+    redir /git /git/
+}</code></pre><p>Note that some apps require that you use <code>handle</code> instead of <code>handle_path</code>.<p>This kind of set up is a big headache when you want to add services, since you have to find a service that supports this, or use hacky ways to fix it if there is no support. I wrote about it in [[2022-09-09_131905]]. Normally you can check for the key words <code>basepath</code>, <code>subpath</code>, <code>subdir</code>, <code>rootdir</code> in the docs or the Issues tab in the project’s repo if there’s some unofficial/undocumented way to do it.<h1 id=custom-dns-resolution>Custom DNS Resolution</h1><p><strong>or, getting a custom domain, for <em>free</em></strong><p>Now it would be great if MagicDNS allowed us to forward <code>*.server.ts.net</code> to <code>server</code> but it doesn’t do so automatically. Now there are 3 ways to fix this:<ol type=1><li>Run a tailscale instance in each docker container, and access the different services through <code>service.your-tailnet-name.ts.net</code>. This is called a tailscale sidecar. Requires you to edit each docker container, which I felt was annoying.<li>Run <a href=https://almeidapaulopt.github.io/tsdproxy/docs/>TSDProxy</a> which gives the same result with a single proxy.<li>Run your own DNS resolver like pihole and add a rule to resolve <code>yourname.com</code> to <code>your-tailscale-ip</code></ol><p>I did 3 because 1 is annoying and I got to know about 2 only as i was writing this post. Also, pihole allows ad blocking at the DNS level. But anyway, here goes:<ol type=1><li>Set up <a href=https://docs.pi-hole.net/docker/>pihole on docker</a>. You may have to turn off systemd-resolved.<li>Set up a reverse proxy to the pihole interface in caddy<li>In the <a href=https://login.tailscale.com/admin/dns>dns section of the tailscale console</a>, add a custom Global Nameserver as the tailscale ip address to <code>server</code>.<li>Use <code>dig</code> to check if you are able to resolve the ip address for a public domain like <code>google.com</code>. Again, check if firewall rules are correct. pihole typically runs on <code>53</code><li>In the pihole admin interface, go to <code>Domains</code>, add a <code>RegEx filter</code>: <code>(\.|^)yourname\.com$;reply=server-tailscale-ip</code>, and <code>Add to denied domains</code>. Now check if you are able to resolve <code>yourname.com</code> to the correct ip. Also check <code>random.yourname.com</code></ol><p>At this point, any device connected to the tailscale should use the pihole as the DNS resolver, which resolves <code>*.yourname.com</code> to your server. But you still have to config caddy to reverse proxy depending on the domain requested. This looks like<pre class=caddyfile><code>servicename.yourname.com {
+    reverse_proxy localhost:port
+}</code></pre><p>Note you do not have to <code>handle_path</code> anymore. You may also have to change the service to serve on the rootdir <code>/</code>.<h2 id=done-almost>Done, Almost</h2><p>At this point you can access all selfhosted services at <code>service.yourname.com</code> as far as you are connected to Tailscale on your <code>client</code>. However, it may happen, as it did in my case, that <code>server</code> is physically located in a different country than <code>client</code>. Since the final dns resolution to public domains happens through a request by <code>server</code>, the resulting ip address is optimal for the country of <code>server</code> rather than <code>client</code>. In terms of speed, this is barely any different, but if <code>server</code>’s country blocks certain domains by <a href=https://torrentfreak.com/google-cloudflare-cisco-will-poison-dns-to-stop-piracy-block-circumvention-240613/>dns poisoning</a>, then <code>client</code> will also not be able to access these websites. You can get a better ip by using an <a href=https://medium.com/nextdns/how-we-made-dns-both-fast-and-private-with-ecs-4970d70401e5>ECS</a> enabled upstream (see <code>Settings > DNS</code> in pihole interface), but I couldn’t really circumvent the dns poisoning. So I also set up an <code>unbound rescursive resolver</code>. Note that since pihole is in a docker container (which has its own subnet) but unbound is on baremetal, you need to run unbound on the docker interface. You can edit <code>/etc/unbound/unbound.conf</code> as I have<pre><code>server:
+    # If no logfile is specified, syslog is used
+    logfile: &quot;/var/log/unbound/unbound.log&quot;
+    verbosity: 0
+
+    interface: 172.17.0.1
+    port: 5335
+    do-ip4: yes
+    do-udp: yes
+    do-tcp: yes
+    
+    access-control: 172.17.0.0/12 allow
+    # May be set to no if you don&#39;t have IPv6 connectivity
+    do-ip6: yes
+
+    # You want to leave this to no unless you have *native* IPv6. With 6to4 and
+    # Terredo tunnels your web browser should favor IPv4 for the same reasons
+    prefer-ip6: no
+
+    # Use this only when you downloaded the list of primary root servers!
+    # If you use the default dns-root-data package, unbound will find it automatically
+    #root-hints: &quot;/var/lib/unbound/root.hints&quot;
+
+    # Trust glue only if it is within the server&#39;s authority
+    harden-glue: yes
+
+    # Require DNSSEC data for trust-anchored zones, if such data is absent, the zone becomes BOGUS
+    harden-dnssec-stripped: yes
+
+    # Don&#39;t use Capitalization randomization as it known to cause DNSSEC issues sometimes
+    # see https://discourse.pi-hole.net/t/unbound-stubby-or-dnscrypt-proxy/9378 for further details
+    use-caps-for-id: no
+
+    # Reduce EDNS reassembly buffer size.
+    # IP fragmentation is unreliable on the Internet today, and can cause
+    # transmission failures when large DNS messages are sent via UDP. Even
+    # when fragmentation does work, it may not be secure; it is theoretically
+    # possible to spoof parts of a fragmented DNS message, without easy
+    # detection at the receiving end. Recently, there was an excellent study
+    # &gt;&gt;&gt; Defragmenting DNS - Determining the optimal maximum UDP response size for DNS &lt;&lt;&lt;
+    # by Axel Koolhaas, and Tjeerd Slokker (https://indico.dns-oarc.net/event/36/contributions/776/)
+    # in collaboration with NLnet Labs explored DNS using real world data from the
+    # the RIPE Atlas probes and the researchers suggested different values for
+    # IPv4 and IPv6 and in different scenarios. They advise that servers should
+    # be configured to limit DNS messages sent over UDP to a size that will not
+    # trigger fragmentation on typical network links. DNS servers can switch
+    # from UDP to TCP when a DNS response is too big to fit in this limited
+    # buffer size. This value has also been suggested in DNS Flag Day 2020.
+    edns-buffer-size: 1232
+
+    # Perform prefetching of close to expired message cache entries
+    # This only applies to domains that have been frequently queried
+    prefetch: yes
+
+    # One thread should be sufficient, can be increased on beefy machines. In reality for most users running on small networks or on a single machine, it should be unnecessary to seek performance enhancement by increasing num-threads above 1.
+    num-threads: 1
+
+    # Ensure kernel buffer is large enough to not lose messages in traffic spikes
+    so-rcvbuf: 1m
+
+    # Ensure privacy of local IP ranges
+    private-address: 192.168.0.0/16
+    private-address: 169.254.0.0/16
+    private-address: 172.16.0.0/12
+    private-address: 10.0.0.0/8
+    private-address: fd00::/8
+    private-address: fe80::/10
+
+    # Ensure no reverse queries to non-public IP ranges (RFC6303 4.2)
+    private-address: 192.0.2.0/24
+    private-address: 198.51.100.0/24
+    private-address: 203.0.113.0/24
+    private-address: 255.255.255.255/32
+    private-address: 2001:db8::/32</code></pre><p>Note that you may need to change <code>interface</code> and <code>access-control</code> to the docker ip address, which you can find by <code>ip addr | grep docker</code>. You can then set <code>Settings > DNS > Upstream DNS Server > Custom DNS Servers</code> to <code>172.17.0.1#5353</code>, or the appropriate ip address. This finally allows us to resolve DNS normally without DNS poisoning. Note that the ISP can still directly block the IP address.<h2 id=overview-of-dns-resolution>Overview of DNS resolution</h2><p>At this point a typical DNS resolution request will first hit MagicDNS, which responds with the appropriate ip for <code>*.ts.net</code> or forward to the custom upstream DNS which is pihole running on <code>server</code>. Pihole then replies with <code>NXDOMAIN</code> for blocked domains, <code>server-tailscale-ip</code> for <code>*.yourname.com</code> or forwards to unbound also running on <code>server</code>. Unbound then <a href=https://www.geeksforgeeks.org/what-is-recursive-dns/>recursively resolves</a> the public domains with ECS.</div><div class="markdown-body tags"><a href=/blog/tags.html#self-hosting>#self-hosting<a></div><footer><a class=footer-button id=home href=/blog/tags.html>Tags</a>
+<img alt="Creative Commons License" style=border-width:0 src=https://i.creativecommons.org/l/by-nc/4.0/88x31.png>
+<a id=fivetwelvea href=https://512kb.club><img id=fivetwelve alt="a proud member of the green team of 512KB club"></a>
+<a class=footer-button id=contents href=/blog/contents.html>Contents</a></footer>
