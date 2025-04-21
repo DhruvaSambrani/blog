@@ -1,6 +1,21 @@
+:root {
+  --background: #282a36;
+  --current-line: #44475a;
+  --selection: #44475a;
+  --foreground: #f8f8f2;
+  --comment: #6272a4;
+  --cyan: #8be9fd;
+  --green: #50fa7b;
+  --orange: #ffb86c;
+  --pink: #ff79c6;
+  --purple: #bd93f9;
+  --red: #ff5555;
+  --yellow: #f1fa8c;
+}
+
 /* Theme */
 body {
-    background-color: #04293a !important;
+    background-color: var(--background) !important;
     padding: 20px 0px;
     max-width: unset !important;
     hyphens: unset;
@@ -9,22 +24,22 @@ body {
     flex-direction: column;
 }
 a {
-    color: #F85E3B !important;
+    color: var(--orange) !important;
 }
 
 .markdown-body {
-    color: #DED7CA;
+    color: var(--foreground);
     max-width: 900px;
     width: 90%;
     flex-grow: 1;
-    background-color: #28374E;
+    background-color: var(--current-line);
     padding: 20px 5%;
     border-radius: 8px;
     margin-left: auto;
     margin-right: auto;
 }
 .markdown-body > :first-child{
-    color: #ffffff;
+    color: white; 
     border: none;
     text-align: center;
     font-size: 35px;
@@ -35,7 +50,7 @@ a {
     margin-bottom: 1.2em;
 }
 .markdown-body h1,h2,h3,h4,h5 {
-    color: #b2e961;
+    color: var(--green);
     font-family: Constantia, "Lucida Bright", Lucidabright, "Lucida Serif", Lucida,
     "DejaVu Serif", "Bitstream Vera Serif", "Liberation Serif", Georgia, serif;
 }
@@ -82,10 +97,10 @@ a {
 }
 
 .tags a{
-    color: #b2e961 !important;
+    color: var(--purple) !important;
     text-shadow:
         /* White glow */
-        0 0 21px #b2e961,
+        0 0 21px var(--purple),
         /* Green glow */
         0 0 82px #888,
         0 0 92px #000;
@@ -98,8 +113,8 @@ footer {
     max-width: 900px;
     width: 90%;
     font-size: 16px;
-    background-color: #28374E;
-    color: #DED7CA;
+    background-color: var(--current-line);
+    color: var(--foreground);
     padding: 10px 5% !important;
     border-radius: 8px;
     border-color: white;
@@ -109,7 +124,7 @@ footer {
     align-items: center;
 }
 footer .footer-button {
-    background-color: #04293a;
+    background-color: var(--background);
     font-size: 1.1rem;
     margin: 0px;
     padding: 8px 20px;
