@@ -18,10 +18,26 @@ Well, hope you enjoy reading my blog, whether you agree with me or not! Please d
 
 ## Contact and Links
 
-[Gemini](gemini://gemini.ctrl-c.club/~dhruva)\
-[Mastodon - Tech](https://fosstodon.org/@dhruvasambrani)\
-[Mastodon - Academic](https://qubit-social.xyz/@dhruvasambrani)\
+### Other Profiles
+
+You will probably find more work related stuff on these:
 [Website/CV](https://dhruvasambrani.github.io)\
 Email - See [Website CV](https://dhruvasambrani.github.io)\
+[Gemini](gemini://gemini.ctrl-c.club/~dhruva)
+
+### Social
+
+I don't use either of these anymore
+
+[Mastodon - Tech](https://fosstodon.org/@dhruvasambrani)\
+[Mastodon - Academic](https://qubit-social.xyz/@dhruvasambrani)
+
+### Code!
+
+[Github](https://github.com/DhruvaSambrani/repos)
+[Codeberg](https://codeberg.org/dhruva_sambrani/repos)
+
+### Other links
+
 [RSS](https://dhruvasambrani.github.io/blog/feed.xml)\
 
