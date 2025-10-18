@@ -34,7 +34,7 @@ I don't use either of these anymore
 
 ### Code!
 
-[Github](https://github.com/DhruvaSambrani/repos)
+[Github](https://github.com/DhruvaSambrani/repos)\
 [Codeberg](https://codeberg.org/dhruva_sambrani/repos)
 
 ### Other links
