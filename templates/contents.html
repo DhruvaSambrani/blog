@@ -18,6 +18,35 @@
     <!--[if lt IE 9]>
     <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
   <![endif]-->
+
+    <style>
+        th {
+            cursor: pointer;
+            user-select: none;
+        }
+
+        th:hover {
+            text-decoration: underline;
+        }
+    </style>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const getCellValue = (tr, idx) => tr.children[idx].innerText || tr.children[idx].textContent;
+
+            const comparer = (idx, asc) => (a, b) => ((v1, v2) =>
+                v1 !== '' && v2 !== '' && !isNaN(v1) && !isNaN(v2) ? v1 - v2 : v1.toString().localeCompare(v2)
+            )(getCellValue(asc ? a : b, idx), getCellValue(asc ? b : a, idx));
+
+            document.querySelectorAll('th').forEach(th => th.addEventListener('click', (() => {
+                const table = th.closest('table');
+                const tbody = table.querySelector('tbody'); // explicit target
+                Array.from(tbody.querySelectorAll('tr'))    // get ALL rows in body
+                    .sort(comparer(Array.from(th.parentNode.children).indexOf(th), this.asc = !this.asc))
+                    .forEach(tr => tbody.appendChild(tr));
+            })));
+        });
+    </script>
     $for(header-includes)$
     $header-includes$
     $endfor$
@@ -29,11 +58,12 @@
         $body$
     </div>
     <footer>
-        <a class="footer-button" id="home" href="$pageroot$/tags.html">Tags</a>
+        <a class="footer-button" id="nav1" href="$pageroot$/">Home</a>
         <img alt="Creative Commons License" style="border-width:0"
             src="https://i.creativecommons.org/l/by-nc/4.0/88x31.png" />
-        <a id="fivetwelvea" href="https://512kb.club"><img id="fivetwelve" alt="a proud member of the green team of 512KB club"/></a>
-        <a class="footer-button" id="contents" href="$pageroot$/contents.html">Contents</a>
+        <a id="fivetwelvea" href="https://512kb.club"><img id="fivetwelve"
+                alt="a proud member of the green team of 512KB club" /></a>
+        <a class="footer-button" id="nav2" href="$pageroot$/tags.html">Tags</a>
     </footer>
 </body>
 

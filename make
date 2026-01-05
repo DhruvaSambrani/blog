@@ -24,11 +24,19 @@ fi
 
 if [[ $PAGES == "1" ]]; then
     echo "Making html toc"
-    zk list -s created- -q -x index.md -f json | jq "\"- \"+.[].link" -r | sed "s|(|($pageroot/|g;s|)|.html)|g" | pandoc -t html5 --template=templates/contents.html -V "pageroot=$pageroot" -s -o build/contents.html --wrap=preserve 2> /dev/null
+    zk list -x index.md --format '{{metadata.updated}}\t{{format-date created "%Y-%m-%d"}}\t{{title}}\t{{path}}' 2>/dev/null |
+        awk -F'\t' '{ u=$1; c=$2; if(u=="") u=c; else u=substr(u,1,10); print u "\t" c "\t" $3 "\t" $4 }' |
+        sort -r |
+        awk -F'\t' 'BEGIN { print "| Title | Modified | Created |"; print "|---|---|---|" } { printf "| [%s](%s) | %s | %s |\n", $3, $4, $1, $2 }' |
+        sed "s|](|]($pageroot/|g;s|\.md)|.html)|g" |
+        pandoc -t html5 --template=templates/contents.html -V "pageroot=$pageroot" -s -o build/contents.html --wrap=preserve
     echo "Making html posts"
     find . -maxdepth 1 -name "20*" | sed "s/\.md//g;s/\.\///g" | xargs -I{} pandoc {}.md -f markdown -t html5 --template=templates/post.html -V "pageroot=$pageroot" -s -o build/{}.html --wrap=preserve --mathjax
     echo "Making html home"
-    pandoc index.md -o build/index.html -t html5 --template=templates/home.html -s -V "pageroot=$pageroot" --wrap=preserve 2> /dev/null
+    RECENT=$(zk list -x index.md --format '{{metadata.updated}}\t{{format-date created "%Y-%m-%d"}}\t{{title}}\t{{path}}' 2>/dev/null | awk -F'\t' '{ u=$1; c=$2; if(u=="") u=c; else u=substr(u,1,10); print u "\t" $3 "\t" $4 }' | sort -r | head -n 3 | awk -F'\t' '{ printf "- [%s](%s) (last edited: %s) \\n", $2, $3, $1 }')
+    awk -v r="$RECENT" '{gsub("{{recent}}", r); print}' index.md |
+        sed "s|](|]($pageroot/|g;s|\.md)|.html)|g" |
+        pandoc -t html5 --template=templates/home.html -V "pageroot=$pageroot" -s -o build/index.html --wrap=preserve
     echo "Making html tag-list"
     ./maketag_html $pageroot | pandoc -t html5 --template=templates/tags.html -V "pageroot=$pageroot" -s -o build/tags.html --wrap=preserve 2> /dev/null
     echo "======="

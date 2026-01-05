@@ -16,6 +16,10 @@ This is a place where I put down my opinions, musings, guides and code. I study 
 
 Well, hope you enjoy reading my blog, whether you agree with me or not! Please do reach out via the links on the bottom!
 
+## Recent Posts
+
+{{recent}}
+
 ## Contact and Links
 
 ### Other Profiles

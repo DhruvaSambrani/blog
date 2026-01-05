@@ -46,11 +46,15 @@ template = "default.md"
 # Letter case for the random IDs, among lower, upper or mixed.
 #id-case = "lower"
 
+[note.metadata]
+# Map the internal 'modified' variable to the 'updated' YAML field
+modified = "updated"
 
 # EXTRA VARIABLES
 #
 # A dictionary of variables you can use for any custom values when generating
 # new notes. They are accessible in templates with {{extra.<key>}}
+
 [extra]
 
 #key = "value"

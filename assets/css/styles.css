@@ -141,16 +141,16 @@ footer #fivetwelvea {
 
 /* Footer content small screen fix */
 
-footer #home::before {
+footer #nav1::before {
     content: "Open ";
 }
-footer #home::after {
+footer #nav1::after {
     content: " Page";
 }
-footer #contents::before {
+footer #nav2::before {
     content: "Open ";
 }
-footer #contents::after {
+footer #nav2::after {
     content: " Page";
 }
 @media (max-width: 55em) {
@@ -159,16 +159,16 @@ footer #contents::after {
     }
 }
 @media (max-width: 45em) {
-    footer #home::before {
+    footer #nav1::before {
         content: "";
     }
-    footer #home::after {
+    footer #nav1::after {
         content: "";
     }
-    footer #contents::before{
+    footer #nav2::before{
         content: "";
     }
-    footer #contents::after {
+    footer #nav2::after {
         content: "";
     }
     footer .footer-button {
