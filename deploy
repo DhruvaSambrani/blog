@@ -2,7 +2,8 @@
 ghpages() {
     echo "deploying gh-pages"
     ./make html /blog
-    gcap 
+    gcap
+    gh run watch
 }
 
 ctrlc() {
