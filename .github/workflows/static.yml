@@ -39,4 +39,4 @@ jobs:
           path: 'build'
       - name: Deploy to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@latest
+        uses: actions/deploy-pages@v3.0.2-node.24
