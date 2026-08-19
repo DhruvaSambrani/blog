@@ -34,7 +34,6 @@ Email - See [Website CV](https://dhruvasambrani.github.io)\
 I don't use either of these anymore
 
 [Mastodon - Tech](https://fosstodon.org/@dhruvasambrani)\
-[Mastodon - Academic](https://qubit-social.xyz/@dhruvasambrani)
 
 ### Code!
 
